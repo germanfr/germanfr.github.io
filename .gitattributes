@@ -1,2 +1,7 @@
-#Normalize line endings for all text files
+# Normalize line endings for all text files
 * text=auto eol=lf
+
+# Don't want these in diffs
+**/*.min.css binary
+**/*.min.js binary
+_site/* binary
