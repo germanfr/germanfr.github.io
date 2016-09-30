@@ -1,0 +1,23 @@
+$white: #FAFAFA; // Has assets dependencies. Change carefully.
+$black: #333333;
+
+$background-color: $white;
+
+$primary-color: #29365b;
+$primary-color-fg: $white;
+
+$accent-color: #33848A; //35989F; //64A17F
+$accent-color-fg: $white;
+
+$text-color: $primary-color;
+$text-secondary-color: lighten(desaturate($primary-color, 25%), 10%);
+$link-color: $accent-color;
+$link-color-highlight: lighten($link-color, 5%);
+$title-color: $primary-color;
+$desaturated-text-color: $black;
+$greyed-out-color: #909090;
+
+$footer-bg-color: #333333;
+$footer-fg-color: $white;
+
+$nondistracting-border-color: #CACACA;

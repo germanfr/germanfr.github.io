@@ -1,0 +1,17 @@
+{% assign post = include.post %}
+<article class="post-summary">
+	<header>
+		<h2>
+			<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+		</h2>
+		<span class="date">{% include functions/site_date.html date=post.date %}</span>
+	</header>
+	<div>
+		{% capture more %} <a href="{{ site.baseurl }}{{ post.url }}" class="more-link" title="Go to the full post">Continue reading &#187;</a>{% endcapture %}
+		{{ post.excerpt | truncatewords: 64 , "..." | append: more }}
+	</div>
+	<footer>
+		{% include posts/taglist.html post=post limit=6 %}
+
+	</footer>
+</article>

@@ -1,0 +1,23 @@
+{% if include.max == null %}
+	{% assign max_posts = site.paginate %}
+{% else if include.max > 0 %}
+	{% assign max_posts = include.max %}
+{% else %}
+	{% assign max_posts = site.posts | size %}
+{% endif %}
+
+{% if site.posts.size > 0 and max_posts > 0 %}
+	{% assign count = 0 %}
+	<div>
+		<h3><a href="{{ site.baseurl }}/blog/">Recent posts</a></h3>
+		<ul class="links-list-block">
+			{% for post in site.posts limit: max_posts %}
+				<li><a href="{{ site.baseurl }}{{ post.url }}" rel="bookmark">{{ post.title }}</a></li>
+				{% assign count = count | plus: 1 %}
+			{% endfor %}
+			{% if count < site.posts.size %}
+				<li class="more-link"><a href="{{ site.baseurl }}/blog/">View more</a></li>
+			{% endif %}
+		</ul>
+	</div>
+{% endif %}

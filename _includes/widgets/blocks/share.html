@@ -1,0 +1,30 @@
+{% capture page_title %}{% include functions/page_title.html %}{% endcapture %}
+{% assign page_title =  page_title | url_param_encode %}
+{% assign url = site.url | append: site.baseurl | append: page.url | url_param_encode %}
+
+<div class="share-buttons-block">
+	<a class="social-button gplus" rel="external"
+	   href="https://plus.google.com/share?url={{ url }}"
+	   target="_blank"
+	   title="Share on Google+"></a>
+	<a class="social-button twitter" rel="external"
+	   href="https://twitter.com/share?url={{ url }}&text={{ page_title }}"
+	   target="_blank"
+	   title="Share on Twitter"></a>
+	<a class="social-button telegram" rel="external"
+   	   href="https://telegram.me/share/url?url={{ url }}"
+	   target="_blank"
+   	   title="Share on Telegram"></a>
+	<a class="social-button mail" rel="external"
+	   href="mailto:?subject={{ page_title }}&body={{ page_title | append: '%0A' |append: url | url_param_encode }}"
+	   target="_blank"
+	   title="Share on email"></a>
+	<a class="social-button reddit" rel="external"
+   	   href="//www.reddit.com/submit?url={{ url }}&title={{ page_title }}"
+   	   target="_blank"
+   	   title="Reddit this"></a>
+	{% comment %}
+		<a rel="external" href="whatsapp://send?text={{ page_title | append: '%0A' | append: url | url_param_encode }}" data-action="share/whatsapp/share">Whatsapp</a>
+	{% endcomment %}
+	<br>Share this
+</div>

@@ -1,0 +1,104 @@
+@import '../includes/values';
+
+#footer {
+	color: $footer-fg-color;
+	background-color: $footer-bg-color;
+	margin-top: 64px;
+	box-sizing: border-box;
+
+	// Sections
+	> div {
+		padding: 16px;
+		text-align: center;
+	}
+
+	#sup-footer {
+
+		> div {
+			margin: 8px 0px;
+		}
+
+		#social {
+			cursor: default;
+		}
+
+		ul.link-list {
+			cursor: default;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			font-size: 0.9rem;
+
+			&.horizontal {
+				li {
+					display: inline-block;
+					margin: 0 8px;
+					vertical-align: middle;
+
+					&::after {
+						content: ' |';
+						margin-left: 8px;
+						color: $footer-fg-color;
+						vertical-align: middle;
+					}
+
+					&:last-child::after {
+						display: none;
+					}
+				}
+
+				a {
+					color: $footer-fg-color;
+					&:hover {
+						color: $link-color-highlight;
+					}
+				}
+			}
+
+			&.vertical { }
+		}
+	}
+
+
+	#sub-footer {
+		background-color: darken($footer-bg-color, 5%);
+		color: darken($footer-fg-color, 5%);
+		font-size: .8rem;
+		line-height: 1.2em;
+
+		$n-columns: 3;
+		display: block;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: stretch;
+
+		// Columns
+		> div {
+			width: (100%) / $n-columns;
+			padding: 0 16px;
+			box-sizing: border-box;
+			flex-shrink: 0;
+
+			&:first-child, &:nth-child(3n - 2) {
+				text-align: left;
+			}
+
+			&:nth-child(2), &:nth-child(3n - 1) {
+				text-align: center;
+			}
+
+			&:last-child, &:nth-child(3n) {
+				text-align: right;
+			}
+		}
+	}
+
+	&.floating-footer {
+		position: absolute;
+		bottom: 0;
+		left: 0; right: 0;
+		width: 100%;
+		box-sizing: border-box;
+	}
+}

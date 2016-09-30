@@ -1,0 +1,47 @@
+# Personal and site info
+author: &var_author 'Germán Franco'
+title: *var_author
+description: 'My personal webpage and blog'
+url: https://germanfr.github.io
+
+# Posts related stuff
+paginate: 6
+paginate_path: /blog/:num/
+permalink: /blog/:year/:month/:title
+
+feed:
+ path: /blog/feed.xml
+ type: 'Atom'
+
+defaults:
+ -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+      layout: 'blog_post'
+      starred: false
+      author: *var_author
+
+
+# Compiler settings
+#exclude: [sass/, assets/raw/, local/, node_modules/, Gruntfile.js, package.json]
+timezone: Europe/Madrid
+exclude:
+ - sass
+# - css
+# - js
+ - assets/raw
+ - local
+ - node_modules
+ - Gruntfile.js
+ - package.json
+include:
+ - dist
+ - dist/js
+ - dist/css
+keep_files:
+ - assets
+
+gems:
+ - jekyll-paginate

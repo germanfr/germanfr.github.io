@@ -1,0 +1,49 @@
+@import '../includes/values';
+
+.paginator {
+	display: table;
+	table-layout: fixed;
+
+	width: 100%;
+	box-sizing: border-box;
+	margin: 32px 0 16px;
+
+	@extend %noselect;
+
+	a {
+		text-decoration: none;
+	}
+
+	> * {
+		padding: 0 16px;
+
+		box-sizing: border-box;
+		vertical-align: middle;
+		white-space: nowrap;
+		display: table-cell;
+	}
+
+	.previous {
+		text-align: right;
+	}
+
+	.current {
+		text-align: center;
+	}
+
+	.posterior {
+		text-align: left;
+	}
+
+	.current {
+		$size: 2em;
+		//height: $size; // Adds an extra pixel there
+		width: $size;
+		line-height: $size;
+		border-radius: $size / 2;
+		padding: 0;
+
+		background-color: $accent-color;
+		color: $accent-color-fg;
+	}
+}

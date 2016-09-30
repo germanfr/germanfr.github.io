@@ -1,0 +1,24 @@
+{
+  "name": "german-franco",
+  "version": "0.0.1",
+  "description": "Project short description",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/germanfr/germanfr.github.io.git"
+  },
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "grunt": "^1.0.0",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-htmlmin": "^2.0.0",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-postcss": "latest"
+  },
+  "dependencies": {
+    "smoothscroll": "^0.2.2"
+  }
+}

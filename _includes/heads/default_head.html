@@ -1,0 +1,23 @@
+<meta charset="utf-8"/>
+{% capture page_title %}{% include functions/page_title.html %}{% endcapture %}
+{% assign page_title = page_title | strip_newlines | strip_html %}
+<title>{{ page_title }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/dist/css/style.min.css"/>
+{% if layout.stylesheet %}
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/dist/css/{{ layout.stylesheet }}.min.css"/>
+{% endif %}
+{% if page.stylesheet %}
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/dist/css/{{ page.stylesheet }}.min.css"/>
+{% endif %}
+<link rel="shortcut icon" href="{{ site.baseurl }}/favicon.png"/>
+
+<meta name="og:title" property="og:title" content="{{ page_title }}">
+<meta name="og:url" property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+<meta name="og:description" property="og:description" content="{{ site.description }}">
+<meta name="og:image" property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/profile.png">
+
+<link rel="alternate" type="application/rss+xml" href="{{ site.url }}{{ site.baseurl }}/blog/feed.xml" title="{{ site.title }}">
+
+<noscript><link href="{{ site.baseurl }}/dist/css/noscript.min.css"rel="stylesheet" type="text/css"/></noscript>

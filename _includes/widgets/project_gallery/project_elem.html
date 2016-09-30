@@ -1,0 +1,34 @@
+{% comment %}
+<!-- Project element in the showcase section.
+	Receives a project structure as parameter -->
+{% endcomment %}
+
+{% assign project = include.project %}
+<div class="grid-elem">
+	<!--{% if project.img %}
+		<img src="{{ site.baseurl }}{{ project.img }}" alt="{{ project.name }}"/>
+	{% else %}
+		<img src="{{ site.baseurl }}/assets/work/sample.svg" alt="Sample image"/>
+	{% endif %} -->
+	{% if project.webpage %}
+		{% assign url = project.webpage %}
+	{% else %}
+		{% assign url = project.repository %}
+	{% endif %}
+	<a class="title" href="{{ url }}">{{ project.name | strip_html }}</a>
+	<p class="description">
+		{{ project.description | strip_html }}
+	</p>
+	<div class="meta">
+		{% if project.language %}
+			<span class="language">{{ project.language }}</span>
+		{% endif %}
+		{% if project.repository %}
+			<a href="{{ project.repository }}">Source</a>
+		{% endif %}
+		{% if project.website %}
+			<a href="{{ project.website }}" title="{{ project.name }}">Website</a>
+		{% endif %}
+	</div>
+
+</div>

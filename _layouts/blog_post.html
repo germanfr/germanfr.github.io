@@ -1,0 +1,36 @@
+---
+layout: blog
+sidebar_blocks_bottom: blogpost_bottom_blocks.html
+---
+<p>
+	Written by <span class="author">{{ page.author }}</span> at
+	<span class="date">{% include functions/site_date.html date=page.date %}</span>
+	{% if page.category %} in category <a>{{ page.category }}</a>{% endif %}
+</p>
+
+{{ content }}
+
+<div id="post-footer">
+	<div class="post-info">
+		{% include posts/taglist.html %}
+	</div>
+
+	<div>
+	{% if page.next or page.previous %}
+		<div class="following-pages-paginator">
+			{% if page.next %}
+				<div class="posterior">
+					<a href="{{ site.baseurl }}{{ page.next.url }}" rel="prev">&#171;&nbsp;{{ page.next.title }}</a>
+				</div>
+			{% endif %}
+			{% if page.previous %}
+				<div class="previous">
+					<a href="{{ site.baseurl }}{{ page.previous.url }}" rel="next">{{ page.previous.title }}&nbsp;&#187;</a>
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
+	</div>
+
+	{% include widgets/blocks/share.html %}
+</div>

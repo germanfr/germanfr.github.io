@@ -1,0 +1,11 @@
+{% comment %}
+====================
+ Global site date format. Change it here and change it anywhere.
+====================
+{% endcomment %}
+{% if include.date %}
+	{% assign time = include.date %}
+{% else %}
+	{% assign time = site.time %}
+{% endif %}
+{{ time | date: "%d-%m-%Y" }}

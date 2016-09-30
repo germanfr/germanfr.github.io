@@ -1,0 +1,21 @@
+{% if include.max == null and site.paginate > 0 %}
+	{% assign max_posts = site.paginate %}
+{% else if include.max > 0 %}
+	{% assign max_posts = include.max %}
+{% else %}
+	{% assign max_posts = 4 %}
+{% endif %}
+
+{% assign sample_posts = site.posts | sample: max_posts %}
+{% if sample_posts.size > 0 and max_posts < site.posts.size %}
+	<div>
+		<h3>See also</h3>
+		<ul class="links-list-block">
+		{% for post in sample_posts %}
+			{% if post.url != page.url %}
+				<li><a href="{{ site.baseurl }}{{ post.url }}" rel="bookmark">{{ post.title }}</a></li>
+			{% endif %}
+		{% endfor %}
+		</ul>
+	</div>
+{% endif %}

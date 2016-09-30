@@ -1,0 +1,15 @@
+@import 'includes/values';
+
+#project-showcase {
+	display: block !important;
+
+	.error-message {
+		color: $text-secondary-color;
+		font-style: italic;
+		text-align: center;
+	}
+}
+
+#header #header-bg-overlay {
+	display: none;
+}

@@ -1,0 +1,21 @@
+---
+layout: blog
+title: Germán's blog
+---
+
+{% if paginator.page == 1 or paginator == null %}
+<p>
+	Welcome to my blog. Here you will find my latest posts.<br>
+	Have fun!
+</p>
+{% endif %}
+
+{% if paginator.total_posts > 0 and paginator.per_page > 0 %}
+	{% for post in paginator.posts %}
+		{% include posts/post_summary.html post=post %}
+	{% endfor %}
+
+	{% include widgets/paginator.html %}
+{% else %}
+<p>Nothing to show here, yet.</p>
+{% endif %}

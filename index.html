@@ -1,48 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8"/>
-		<title>Germán Franco</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-	</head>
+---
+layout: homepage
+---
 
-	<style>
-	html, body {
-		min-height: 100%;
-		height: 100%;
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
-	body {
-		border-top: 4px solid #29365B;
-		background-color: #FAFAFA url('/assets/noise.png') repeat;
-		color: #29365B;
-		font: 100% monospace;
+<h2 id="about">Who is this person</h2>
+<p>
+	As you've probably read in the title, my name is Germán. I
+	am {% include functions/age.html %} years old (this is not relevant information,
+	I just wanted to write a tiny script to calculate my age). I am currently a
+	Computer Science student and in my free time I'm kind of a web developer.
+</p>
+<p>
+	I like science and technology related topics, but I am specially
+	interested in Artificial Intelligence, Quantum Computing and space.
+	I like to <del>fangrirl</del> read about it and think about their philosophical implications.
+	These topics fill me with excitement, although they scare me a bit at the
+	same time. There is proverb that says <cite>Curiosity killed the cat</cite>.
+	I hope is not the case, because I want to know what's behind it (in this
+	century, if possible).
+</p>
+<p>
+	Also I am very concerned about privacy and freedom. That's why I
+	declare myself a Free Software defender. I am a staunch Linux user,
+	although I am not <i>R. Stallman</i>, so I have a phone and you can find me on
+	some "suspicious" social networks out there.
+</p>
 
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	a, a:link, a:visited {
-		color:  #33848A;
-		text-decoration: underline;
-		cursor: pointer;
-	}
-	</style>
-	<body>
-		<div>
-			<h1>Site under construction</h1>
-			<p>For contact see:
-				<p>
-					<a href="https://plus.google.com/105164701606585758145/">Google+</a>,
-					<a href="http://github.com/germanfr/">GitHub</a> or
-					<a class="liam" href="mailto:drefvngaemr@gmail.com" title="Send me an email">send me an email</a>.
-				</p>
-			</p>
-		</div>
-		<script>
-			!function(){function a(){for(var a=document.getElementsByClassName("liam"),d=0,e=a.length;d<e;d++)a[d].addEventListener("mouseover",b),a[d].addEventListener("mouseout",c)}function b(){var a="mailto:",b=this.href.substr(7,this.href.length-1);this.href=a+e(b)}function c(){var a="mailto:",b=this.href.substr(7,this.href.length-1);this.href=a+d(b)}function d(a){for(var b=a.split("@"),c=b[0],d="",e=0,f=c.length-1;e<f;)d+=c[e]+c[f],e++,f--;return e===f&&(d+=c[e]),d+"@"+b[1]}function e(a){for(var b=a.split("@"),c=b[0],d=new Array(c.length),e=0,f=c.length-1,g=0;g<c.length;g++)g%2===0?(d[e]=c[g],e++):(d[f]=c[g],f--);return d.join("")+"@"+b[1]}a()}();
-		</script>
-	</body>
-</html>
+<h2 id="work">My work</h2>
+<p>
+	Here are some things I have done and some of my GitHub repos.<br>
+	See the full list <a title="My GitHub account" rel="external"
+	 href="http://github.com/{{ site.data.author.usernames.github }}">here</a>.
+</p>
+
+{% include widgets/project_gallery/gallery.html %}
+
+
+<h2 id="contact">Contact me</h2>
+<p>
+	Here it's me on different places of the Internet.
+	Please, contact me if you have any question and follow me
+	(on the Internet, don't follow me to my house).
+</p>
+<p>
+	<a title="Follow me on Google+"
+	   href="https://plus.google.com/{{site.data.author.usernames.gplus}}/"
+	   rel="external">Google+</a>,
+	<a title="Follow me on Twitter"
+	   href="http://twitter.com/{{site.data.author.usernames.twitter}}"
+	   rel="external">Twitter</a>,
+	<a title="Follow me on GitHub"
+	   href="http://github.com/{{site.data.author.usernames.github}}/"
+	   rel="external">GitHub</a> or
+	<a title="Send me an email" class="liam"
+	   href="mailto:{{site.data.author.email}}"
+	   rel="external">send me an email</a>.
+</p>

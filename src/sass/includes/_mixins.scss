@@ -1,0 +1,25 @@
+%noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	cursor: default;
+}
+
+@mixin selection($color: null) {
+	@if $color {
+		background-color: $color;
+		@if lightness($color) > 50 {
+			color: $black;
+		} @else {
+			color: $white;
+		}
+	} @else {
+		background-color: $accent-color;
+		color: $accent-color-fg;
+	}
+
+	text-shadow: none;
+}

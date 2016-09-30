@@ -1,0 +1,44 @@
+---
+layout: default
+stylesheet: blog
+---
+
+<div class="main">
+
+	<div class="content-header">
+		<h1 id="page-title">{{ page.title | escape }}</h1>
+	</div>
+	<main class="content">
+		{{ content }}
+	</main>
+	<aside class="sidebar">
+		<div>
+			<form class="input-search" action="{{ site.baseurl }}/blog/search" method="get">
+				<input type="search" placeholder="Search" name="term"/><input type="submit"/>
+			</form>
+		</div>
+		<div>
+			Subscribe via <a href="{{ site.baseurl }}{{ site.feed.path }}">{{ site.feed.type | default: 'RSS' }} Feed</a>.
+		</div>
+		<hr>
+
+		{% if page.sidebar_blocks_top %}
+			{% include widgets/blocks/{{ page.sidebar_blocks_top }} %}
+		{% endif %}
+		{% if layout.sidebar_blocks_top %}
+			{% include widgets/blocks/{{ layout.sidebar_blocks_top }} %}
+		{% endif %}
+
+		{% comment %} Default blocks. (weight: 5) {% endcomment %}
+		{% include widgets/blocks/recent_posts.html %}
+		{% include widgets/blocks/starred_posts.html %}
+
+		{% if page.sidebar_blocks_bottom %}
+			{% include widgets/blocks/{{ page.sidebar_blocks_bottom }} %}
+		{% endif %}
+		{% if layout.sidebar_blocks_bottom %}
+			{% include widgets/blocks/{{ layout.sidebar_blocks_bottom }} %}
+		{% endif %}
+
+	</aside>
+</div>

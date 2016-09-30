@@ -1,0 +1,20 @@
+---
+layout: blog
+title: Starred posts
+permalink: blog/starred/
+---
+
+<p>
+	Highlighted posts by me. <cite>Crème de la crème</cite>.
+</p>
+
+{% assign count = 0 %}
+{% for post in site.posts %}
+	{% if post.starred %}
+		{% include posts/post_summary.html post=post %}
+		{% assign count = count | plus: 1 %}
+	{% endif %}
+{% endfor %}
+{% unless count > 0 %}
+	<p>Nothing to see here. For now.</p>
+{% endunless %}
