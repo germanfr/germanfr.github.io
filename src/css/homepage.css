@@ -34,7 +34,8 @@
     height: 140px;
     border-radius: 50%;
     box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.2);
-    margin: 8px; }
+    margin: 8px;
+    background-color: #506379; }
   #header #intro {
     padding: 32px 0 64px;
     text-align: center;
@@ -66,7 +67,7 @@
     background-repeat: repeat-x;
     background-size: 16px;
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 0; }
 
 nav#nav ul li a, #nav ul li a {

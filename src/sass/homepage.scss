@@ -45,6 +45,7 @@
 		border-radius: 50%;
 		box-shadow: 2px 1px 4px rgba(0,0,0,.2);
 		margin: 8px;
+		background-color: #506379;
 	}
 
 	#intro {
@@ -79,6 +80,7 @@
 		}
 	}
 
+	// Crop overlay
 	&::after {
 		$height: 16px;
 		content: '';
@@ -89,7 +91,7 @@
 		background-repeat: repeat-x;
 		background-size: $height;
 		position: absolute;
-		bottom: 0;
+		bottom: -1px; // Just to avoid tiny line rendering
 		left: 0;
 	}
 }
