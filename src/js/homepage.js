@@ -43,11 +43,10 @@
 	var quotes = [
 		'Please, marry me',
 		'I do things',
-		'Oh, please, stop it',
 		'Hello... human...',
 		'I don\'t use to bite people',
-		'Sometimes',
-		'You know',
+		'(Sometimes)',
+		'But you already knew',
 		'Life under construction'
 	];
 
@@ -65,7 +64,7 @@
 	        setInterval(function() {
 	            toggle_visibility(cursor);
 	        }, 1000);
-		}, 100, cursor.textContent);
+		}, 1600, cursor.textContent);
 
 		// Meant to be called on dom content loaded to erase ASAP,
 		// but launch text on load because it is not visible before
@@ -77,9 +76,10 @@
 		}
     }
 
-	function write_text(text, context, callback, interval, cursor) {
+	function write_text(text, context, callback, duration, cursor) {
 		cursor = (typeof cursor === 'string') ? cursor.trim() : '';
 		if(!text) return;
+		var interval = duration / text.length;
 
 		var i = 1; // <-- Don't start with an empty string
 		function write_internal() {
