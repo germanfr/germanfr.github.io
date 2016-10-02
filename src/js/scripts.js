@@ -33,7 +33,6 @@
 	}
 
 	function show_mail_link() {
-		//this.href = ':otliam'.split('').reverse().join('')+ m + 'moc.liamg\u0040'.split('').reverse().join('');
 		var mailto = '\x6Dai\x6C\x74o\x3A';
 		var mail = this.href.substr(7, this.href.length-1);
 		this.href = mailto + unobfuscate_mail(mail);

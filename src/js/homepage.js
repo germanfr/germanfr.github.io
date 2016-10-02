@@ -21,7 +21,6 @@
 
 	function _main_complete_() {
         preload_header();
-		//enable_project_showcase();
 		show_github_repos();
     }
 
@@ -138,79 +137,6 @@
 	function get_raw_url(url) {
         return url ? url.match(/(?:\(['|"]?)(.*?)(?:['|"]?\))/)[1] : null;
     }
-
-	/*
-	function enable_project_showcase() {
-		var container = document.getElementById(ID_PROJECTS_GALLERY);
-		var fragment = document.createDocumentFragment();
-
-		var backButton = document.createElement('a');
-		var forwardButton = document.createElement('a');
-		backButton.className = 'controller back disabled';
-		forwardButton.className = 'controller forward';
-		fragment.appendChild(backButton);
-		fragment.appendChild(forwardButton);
-
-		container.appendChild(fragment);
-
-		enable_controllers(container, backButton,forwardButton);
-	}
-
-	function enable_controllers(container, backButton, forwardButton) {
-		var scrollable = container.querySelector('.gallery');
-		var clickable = true;
-		if(!is_touch_device())
-			scrollable.style.overflowX = 'hidden';
-
-		forwardButton.onclick = function(e) {
-			if(!clickable) return false;
-			e.preventDefault();
-			e.stopPropagation();
-			clickable = false;
-
-			var base = scrollable.scrollLeft;
-			var offset = scrollable.offsetWidth;
-			smoothScroll(base + offset, null, on_scroll_stop, scrollable, true);
-		};
-
-		backButton.onclick = function(e) {
-			if(!clickable) return false;
-			e.preventDefault();
-			e.stopPropagation();
-			clickable = false;
-
-			var base = scrollable.scrollLeft;
-			var offset = scrollable.offsetWidth;
-			smoothScroll(base - offset, null, on_scroll_stop, scrollable, true);
-		};
-
-		function on_scroll_stop() {
-			clickable = true;
-			if(is_scroll_start(scrollable)) {
-				backButton.classList.add('disabled');
-				forwardButton.classList.remove('disabled');
-			} else if(is_scroll_end(scrollable)) {
-				backButton.classList.remove('disabled');
-				forwardButton.classList.add('disabled');
-			} else { // It's in the middle
-				backButton.classList.remove('disabled');
-				forwardButton.classList.remove('disabled');
-			}
-		}
-
-		function is_scroll_start(el) {
-			return el.scrollLeft === 0;
-		}
-
-		function is_scroll_end(el) {
-			return el.offsetWidth + el.scrollLeft >= el.scrollWidth;
-		}
-
-		function is_touch_device() {
-			return 'ontouchstart' in window || navigator.maxTouchPoints;
-		}
-	}
-	*/
 
 	function show_github_repos(where_id) {
 		var MAX_DAYS_CACHE = 1;
