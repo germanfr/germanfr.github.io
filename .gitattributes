@@ -5,3 +5,8 @@
 **/*.min.css binary
 **/*.min.js binary
 _site/* binary
+
+# Ignore generated files from languages used statistic
+dist/* linguist-vendored
+src/css/* linguist-vendored
+_site/* linguist-vendored

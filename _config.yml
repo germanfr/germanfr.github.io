@@ -29,19 +29,12 @@ defaults:
 timezone: Europe/Madrid
 exclude:
  - sass
-# - css
-# - js
+ - src
  - assets/raw
  - local
  - node_modules
  - Gruntfile.js
  - package.json
-include:
- - dist
- - dist/js
- - dist/css
-keep_files:
- - assets
 
 gems:
  - jekyll-paginate
