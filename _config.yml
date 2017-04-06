@@ -29,7 +29,6 @@ defaults:
 timezone: Europe/Madrid
 exclude:
  - src
- - assets/raw
  - lib
  - local
  - node_modules
