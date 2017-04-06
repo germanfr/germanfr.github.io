@@ -1,4 +1,7 @@
 (function(window) {
+
+	require('../../lib/lunr.min.js');
+
 	var store = window.search_store;
 
 	switch (document.readyState) {

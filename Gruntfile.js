@@ -1,22 +1,25 @@
 module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		// Tasks
-		sass: { // Compile Sass
+
+		// Compile SASS, add compatibility stuf and minify
+		sass: {
 			dist: {
-				options: {
-					sourcemap: 'none'
-				},
-				files: [{
-					expand: true,
-					cwd: 'src/sass',
-					src: ['**/*.scss'],
-					dest: 'src/css',
-					ext: '.css'
-				}]
+				cwd: 'src/sass/',
+				src: '**/*.scss',
+				dest: 'dist/css/',
+				ext: '.min.css',
+				expand: true
+			},
+			options: {
+				sourcemap: 'none'
 			}
 		},
-		postcss: { // Post CSS
+		postcss: {
+			dist: {
+				src: 'src/css/**/*.css',
+				expand: true
+			},
 			options: {
 				map: false,
 				processors: [
@@ -24,73 +27,50 @@ module.exports = function (grunt) {
 						browsers: ['> 0.5%']
 					})
 				]
-			},
-			dist: {
-				src: 'src/css/**/*.css'
 			}
 		},
-		cssmin: { // CSS Minify
+		cssmin: {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'src/css',
-					src: ['**/*.css', '!**/*.min.css'],
-					dest: 'dist/css',
+					cwd: 'dist/css/',
+					src: '**/*.css',
+					dest: 'dist/css/',
 					ext: '.min.css'
 				}]
 			}
 		},
-		uglify: { // JS Uglify
-			dist: {
-				files: [
-					{
-						expand: true,
-						cwd: 'src/js',
-						src: ['**/*.js', '!scripts.js', '!**/*.min.js'],
-						dest: 'dist/js',
-						ext: '.min.js'
-					},
-					{
-						'dist/js/scripts.min.js' : 'dist/js/scripts.min.js'
-					}
-				]
-			}
-		},
+
+		// Process JS imports and minify
 		browserify: {
 			dist: {
-				files: [{
-					'dist/js/scripts.min.js' : 'src/js/scripts.js'
-				}]
+				cwd: 'src/js',
+				src: ['**/*.js', '!**/_*.js'],
+				dest: 'dist/js',
+				ext: '.min.js',
+				expand: true
 			}
 		},
-		htmlmin: {
+		uglify: { // JS Uglify
 			dist: {
-				options: {
-					removeComments: true,
-					collapseWhitespace: true,
-					preventAttributesEscaping: true,
-					keepClosingSlash: true,	// Important for xml
-					collapseInlineTagWhitespace: false
-				},
-				files: [{
-					expand: true,
-					cwd: '_site',
-					src: ['**/*.html','blog/feed.xml'],
-					dest: '_site'
-				}]
+				cwd: 'dist/js/',
+				src: '**/*.js',
+				dest: 'dist/js/',
+				expand: true
 			}
 		},
+
 		watch: {
 			options: {
 				atBegin: true
 			},
 			css: {
 				files: 'src/sass/**/*.scss',
-				tasks: ['sass', 'postcss', 'cssmin']
+				tasks: ['sass', 'postcss']
 			},
 			js: {
 				files: ['src/js/**/*.js'],
-				tasks: ['browserify', 'uglify']
+				tasks: ['browserify']
 			}
 		}
 	});
@@ -102,7 +82,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-browserify');
-	grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
 	grunt.registerTask('default', ['watch']);
+	grunt.registerTask('build', ['browserify:dist','uglify:dist','sass:dist', 'postcss:dist', 'cssmin:dist']);
 };

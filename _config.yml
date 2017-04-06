@@ -28,13 +28,14 @@ defaults:
 #exclude: [sass/, assets/raw/, local/, node_modules/, Gruntfile.js, package.json]
 timezone: Europe/Madrid
 exclude:
- - sass
  - src
  - assets/raw
+ - lib
  - local
  - node_modules
  - Gruntfile.js
  - package.json
+ - README.md
 
 gems:
  - jekyll-paginate
