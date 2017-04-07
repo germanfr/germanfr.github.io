@@ -51,12 +51,21 @@ module.exports = function (grunt) {
 				expand: true
 			}
 		},
-		uglify: { // JS Uglify
+		uglify: {
 			dist: {
 				cwd: 'dist/js/',
 				src: '**/*.js',
 				dest: 'dist/js/',
 				expand: true
+			}
+		},
+
+		shell: {
+			jekyll_serve: {
+				command: 'jekyll serve'
+			},
+			jekyll_build: {
+				command: 'jekyll build'
 			}
 		},
 
@@ -72,17 +81,35 @@ module.exports = function (grunt) {
 				files: ['src/js/**/*.js'],
 				tasks: ['browserify']
 			}
+		},
+
+		concurrent: {
+			dist: {
+				tasks: ['watch', 'shell:jekyll_serve'],
+				options: {
+					logConcurrentOutput: true
+				}
+			}
 		}
 	});
 
 	// Load Grunt plugins
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-postcss');
+	grunt.loadNpmTasks('grunt-browserify');
+	grunt.loadNpmTasks('grunt-concurrent');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-browserify');
+	grunt.loadNpmTasks('grunt-postcss');
+	grunt.loadNpmTasks('grunt-shell');
 
-	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('build', ['browserify:dist','uglify:dist','sass:dist', 'postcss:dist', 'cssmin:dist']);
+	grunt.registerTask('default', ['concurrent']);
+	grunt.registerTask('build', [
+		'browserify:dist',
+		'uglify:dist',
+		'sass:dist',
+		'postcss:dist',
+		'cssmin:dist',
+		'shell:jekyll_build'
+	]);
 };
