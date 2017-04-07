@@ -16,8 +16,8 @@
     "grunt-contrib-sass": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-postcss": "latest",
-    "grunt-shell": "^2.1.0"
+    "grunt-jekyll": "^0.4.6",
+    "grunt-postcss": "latest"
   },
   "dependencies": {
     "smoothscroll": "^0.2.2"

@@ -60,12 +60,16 @@ module.exports = function (grunt) {
 			}
 		},
 
-		shell: {
-			jekyll_serve: {
-				command: 'jekyll serve'
+		jekyll: {
+			dist: {
+				options: {
+					serve: false
+				}
 			},
-			jekyll_build: {
-				command: 'jekyll build'
+			dev: {
+				options: {
+					serve: true
+				}
 			}
 		},
 
@@ -85,7 +89,7 @@ module.exports = function (grunt) {
 
 		concurrent: {
 			dist: {
-				tasks: ['watch', 'shell:jekyll_serve'],
+				tasks: ['watch', 'jekyll:dev'],
 				options: {
 					logConcurrentOutput: true
 				}
@@ -100,8 +104,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-jekyll');
 	grunt.loadNpmTasks('grunt-postcss');
-	grunt.loadNpmTasks('grunt-shell');
 
 	grunt.registerTask('default', ['concurrent']);
 	grunt.registerTask('build', [
@@ -110,6 +114,6 @@ module.exports = function (grunt) {
 		'sass:dist',
 		'postcss:dist',
 		'cssmin:dist',
-		'shell:jekyll_build'
+		'jekyll:dist'
 	]);
 };
