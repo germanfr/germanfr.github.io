@@ -1,21 +1,35 @@
 (function(window) { 'use strict'
 
-	var ID_AGE = 'my-age',
-	    ID_HEADER = 'header',
-	    ID_HEADER_QUOTES = 'header-quote',
-	    ID_HEADER_CURSOR = 'header-quote-caret',
-		ID_PROJECTS_GALLERY = 'project-showcase';
+	const ID_AGE = 'my-age', ID_PROJECTS_GALLERY = 'project-showcase';
 
 
 	const HeaderBg = require('./homepage/header/_bg.js');
+	const HeaderQuotes = require('./homepage/header/_quotes.js');
+
+	const modules = [
+		new HeaderBg(),
+		new HeaderQuotes()
+	];
+
+	function load_modules(state) {
+		for(let i = 0; i < modules.length; ++i) {
+			try {
+				if(modules[i].load_on() === state) {
+					modules[i].load();
+				}
+			} catch (e) {
+				console.error(e);
+			}
+		}
+	}
 
 	window.addEventListener('DOMContentLoaded', function() {
-		launch_cursor(ID_HEADER_QUOTES);
-        show_age(1996, ID_AGE);
+		load_modules('interactive');
+		show_age(1996, ID_AGE);
 	});
 
 	window.addEventListener('load', function() {
-		new HeaderBg().load();
+		load_modules('complete');
 		requestAnimationFrame(show_github_repos);
 	});
 
@@ -27,101 +41,6 @@
     function get_age(year_of_birth) {
         var d = new Date();
         return d.getFullYear() - year_of_birth;
-    }
-
-	var quotes = [
-		'Please, marry me',
-		'I do things',
-		'Hello... human...',
-		'I don\'t use to bite people',
-		'(Sometimes)',
-		'But you already knew',
-		'Life under construction'
-	];
-
-    function launch_cursor(where) {
-        var desc_elem = document.getElementById(where);
-		var rand = Date.now() % quotes.length;
-
-		var cursor = document.createElement('span');
-		cursor.id = ID_HEADER_CURSOR;
-		cursor.textContent = '|';
-		cursor.style.visibility = 'visible';
-
-		var start = write_text.bind(null, quotes[rand], desc_elem, function () {
-			desc_elem.appendChild(cursor);
-	        setInterval(function() {
-	            toggle_visibility(cursor);
-	        }, 1000);
-		}, 1600, cursor.textContent);
-
-		// Meant to be called on dom content loaded to erase ASAP,
-		// but launch text on load because it is not visible before
-		desc_elem.textContent = ' ';
-		if(document.readyState !== 'complete') {
-			window.addEventListener('load', start);
-		} else {
-			start();
-		}
-    }
-
-	function write_text(text, context, callback, duration, cursor) {
-		cursor = (typeof cursor === 'string') ? cursor.trim() : '';
-		if(!text) return;
-		var interval = duration / text.length;
-
-		var i = 1; // <-- Don't start with an empty string
-		function write_internal() {
-			if(i < text.length) {
-				var t_delta = interval;
-				if(text[i] === ',') {
-					t_delta *= 2;
-				} else if (text[i] === '.' || text[i] === '?') {
-					t_delta *= 3;
-				}
-				// Use request animation frame to improve performance and reliability
-				// Use a no-anonymous funcion so that it doesn't create copies.
-				window.requestAnimationFrame(put_text_internal);
-				function put_text_internal(t) {
-					context.textContent = text.substr(0, i) + cursor;
-				}
-
-				i++;
-				setTimeout(write_internal, t_delta);
-			} else {
-				context.textContent = text;
-				if(typeof callback === 'function')
-					callback(context);
-			}
-		}
-		write_internal();
-	}
-
-    function toggle_visibility(el) {
-        if('visible' === el.style.visibility){
-			el.style.visibility = 'hidden';
-		} else {
-			el.style.visibility = 'visible';
-		}
-    }
-
-    function preload_header() {
-        var overlay, header = document.getElementById(ID_HEADER);
-		var img = new Image();
-		var css_bg, raw_url;
-
-        css_bg = window.getComputedStyle(header).getPropertyValue('background-image');
-        raw_url = css_bg && 'none' !== css_bg && get_raw_url(css_bg);
-
-        if(raw_url){
-			img.onload = function() {
-	            overlay = document.getElementById(ID_HEADER_OVERLAY);
-	            overlay.style.opacity = '0';
-	            overlay.style.visibility = 'hidden';
-	        }
-			img.src = raw_url;
-		}
-
     }
 
 	function get_raw_url(url) {
