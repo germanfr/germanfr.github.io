@@ -5,10 +5,12 @@
 
 	const HeaderBg = require('./homepage/header/_bg.js');
 	const HeaderQuotes = require('./homepage/header/_quotes.js');
+	const AgeCalculator = require('./homepage/_age.js');
 
 	const modules = [
 		new HeaderBg(),
-		new HeaderQuotes()
+		new HeaderQuotes(),
+		new AgeCalculator('1996/05')
 	];
 
 	function load_modules(state) {
@@ -25,23 +27,12 @@
 
 	window.addEventListener('DOMContentLoaded', function() {
 		load_modules('interactive');
-		show_age(1996, ID_AGE);
 	});
 
 	window.addEventListener('load', function() {
 		load_modules('complete');
 		requestAnimationFrame(show_github_repos);
 	});
-
-    function show_age(birth, where) {
-        var el = document.getElementById(where);
-        el.textContent = get_age(birth);
-    }
-	// Returns your age based on your year of birth
-    function get_age(year_of_birth) {
-        var d = new Date();
-        return d.getFullYear() - year_of_birth;
-    }
 
 	function get_raw_url(url) {
         return url ? url.match(/(?:\(['|"]?)(.*?)(?:['|"]?\))/)[1] : null;
