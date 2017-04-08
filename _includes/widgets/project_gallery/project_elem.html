@@ -4,7 +4,7 @@
 {% endcomment %}
 
 {% assign project = include.project %}
-<div class="grid-elem">
+<div class="project-elem">
 	<!--{% if project.img %}
 		<img src="{{ site.baseurl }}{{ project.img }}" alt="{{ project.name }}"/>
 	{% else %}
@@ -15,13 +15,13 @@
 	{% else %}
 		{% assign url = project.repository %}
 	{% endif %}
-	<a class="title" href="{{ url }}">{{ project.name | strip_html }}</a>
-	<p class="description">
+	<a class="project-elem-title" href="{{ url }}">{{ project.name | strip_html }}</a>
+	<p class="project-elem-description">
 		{{ project.description | strip_html }}
 	</p>
-	<div class="meta">
+	<div class="project-elem-meta">
 		{% if project.language %}
-			<span class="language">{{ project.language }}</span>
+			<span class="project-elem-language">{{ project.language }}</span>
 		{% endif %}
 		{% if project.repository %}
 			<a href="{{ project.repository }}">Source</a>

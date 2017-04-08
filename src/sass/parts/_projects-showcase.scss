@@ -1,7 +1,7 @@
 @import '../includes/values';
 @import '../includes/mixins';
 
-#project-showcase {
+#project-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: stretch;
@@ -12,7 +12,7 @@
 	margin: 32px (-$main-content-padding / 2);
 
 
-	.grid-elem {
+	.project-elem {
 		$vpadding: 1em;
 		$hpadding: 1.2em;
 		position: relative;
@@ -29,16 +29,16 @@
 		display: flex;
 		flex-direction: column;
 
-		.description, .meta {
+		&-description, &-meta {
 			font-size: 0.85rem;
 		}
 
-		.description {
+		&-description {
 			margin: 0.5em 0;
 			flex-grow: 1;
 		}
 
-		.meta {
+		&-meta {
 			color: $text-color-secondary;
 			> * {
 				float: left;
