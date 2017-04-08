@@ -1,7 +1,10 @@
 @import '../includes/values';
 
 #footer {
-	color: $footer-fg-color;
+	$footer-bg-color: $color-background-dark;
+	$footer-text-color: readable-text-color($footer-bg-color);
+
+	color: $footer-text-color;
 	background-color: $footer-bg-color;
 	margin-top: 64px;
 	box-sizing: border-box;
@@ -10,6 +13,14 @@
 	> div {
 		padding: 16px;
 		text-align: center;
+	}
+
+	a, a:link, a:visited {
+		color: $color-link-highlight;
+
+		&:hover, &:active {
+			color: $color-link;
+		}
 	}
 
 	#sup-footer {
@@ -38,7 +49,7 @@
 					&::after {
 						content: ' |';
 						margin-left: 8px;
-						color: $footer-fg-color;
+						color: $footer-text-color;
 						vertical-align: middle;
 					}
 
@@ -48,9 +59,9 @@
 				}
 
 				a {
-					color: $footer-fg-color;
+					color: $footer-text-color;
 					&:hover {
-						color: $link-color-highlight;
+						color: $color-link-highlight;
 					}
 				}
 			}
@@ -62,7 +73,7 @@
 
 	#sub-footer {
 		background-color: darken($footer-bg-color, 5%);
-		color: darken($footer-fg-color, 5%);
+		color: darken($footer-text-color, 5%);
 		font-size: .8rem;
 		line-height: 1.2em;
 

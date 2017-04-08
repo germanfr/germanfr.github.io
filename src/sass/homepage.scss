@@ -1,58 +1,43 @@
 @import 'includes/values';
 
 #header {
+	$header-background-color: #111111;
 	position: relative;
-	background-color: #CCCCCC;
-	background-image: url('../../assets/header.jpg');
-	overflow: hidden;
-	border-top: none;
+	background-color: $header-background-color;
+	border-bottom: 1px solid #000000;
+	box-shadow: 0 2px 8px rgba(#000,.5);
 
 	> * {
 		position: relative;
 		z-index: 1;
 	}
 
-	&, #header-bg-overlay {
-		background-size: cover;
-		background-position: center center;
-	}
-
-	#header-bg-overlay {
+	&-background {
 		position: absolute;
 		width: 100%;
-		height: 100%;
 		top: 0;
 		left: 0;
 		z-index: 0;
-
-		overflow: hidden;
-		background-image: url('../../assets/header-lowres.png');
-		filter: blur(4px); // Check overflow hidden of the parent
-
-		opacity: 1;
-		visibility: visible;
-
-		$duration: 0.4s;
-		$delay: 0s;
-		transition-duration: $duration, 0s;
-		transition-property: opacity, visibility;
-		transition-delay: $delay, $delay + $duration + 0.2s;
+		padding: 0;
+		opacity: 0;
+		transition: opacity 1s;
 	}
 
-	#profile-photo {
+	&-profile-photo {
 		width: 140px;
 		height: 140px;
 		border-radius: 50%;
-		box-shadow: 2px 1px 4px rgba(0,0,0,.2);
+		box-shadow: 2px 1px 4px rgba(#000,.2);
 		margin: 8px;
 		background-color: #506379;
 	}
 
-	#intro {
+	&-content {
 		padding: 32px 0 64px;
 		text-align: center;
 		position: relative;
 		display: block;
+		pointer-events: none;
 
 		h1 {
 			text-decoration: none;
@@ -62,14 +47,15 @@
 
  		span {
 			font-size: 3rem;
-			color: $desaturated-text-color;
 			line-height: 64px;
-			background-color: $white;
+			height: 64px;
+			background-color: $color-light;
+			color: desaturate($text-color,100%);
 			padding: 0 .3em;
 			white-space: nowrap;
 			display: inline-block;
 
-			&#title-cursor {
+			&#header-quote-caret {
 				visibility: hidden;
 				padding-left: 0px;
 				padding-right: 0px;
@@ -80,33 +66,17 @@
 		}
 	}
 
-	// Crop overlay
-	&::after {
-		$height: 16px;
-		content: '';
-		display: block;
-		height: $height;
-		width: 100%;
-		background-image: url('../../assets/header-clip.svg');
-		background-repeat: repeat-x;
-		background-size: $height;
-		position: absolute;
-		bottom: -1px; // Just to avoid tiny line rendering
-		left: 0;
-	}
-}
+	#nav > ul li a {
+		color: readable-text-color($header-background-color);
 
-nav#nav, #nav {
-	ul li a {
-		transition: none;
-
-		&:hover, &:focus {
-			background-color: $primary-color;
-			color: $primary-color-fg;
-			outline: none;
+		&::after {
+			background-color: readable-text-color($header-background-color);
 		}
 	}
-}
 
+	&::before {
+		display: none;
+	}
+}
 
 @import 'parts/projects-showcase';

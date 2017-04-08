@@ -1,0 +1,165 @@
+html {
+	min-width: 320px;
+	font-size: 0.42333cm;
+	font-family: $default-font;
+
+	body {
+		//height: 100%;
+
+		color: $text-color;
+		overflow-y: scroll; // Always show scrollbars
+		line-height: 1.5em;
+
+		// Correct wider fonts on firefox
+		@-moz-document url-prefix() {
+			letter-spacing: -0.005em;
+		}
+
+		background-image: url('../../assets/noise.png');
+		background-color: $color-background;
+		background-repeat: repeat;
+	}
+
+	#wrapper {
+		min-height: 100%;
+		position: relative;
+		box-sizing: border-box;
+	}
+
+	&, body {
+		@extend #wrapper;
+		margin: 0;
+		padding: 0;
+		height: 100%;
+	}
+}
+
+:focus {
+	outline: 2px solid transparentize($color-accent-secondary, 0.5);
+}
+
+::selection {
+	@include selection;
+}
+::-moz-selection {
+	@include selection;
+}
+
+a, a:link, a:visited {
+	color: $color-link;
+	text-decoration: underline;
+	cursor: pointer;
+	text-align: left;
+
+	img {
+		text-decoration: none;
+	}
+
+	&:hover, &:active {
+		color: $color-link-highlight;
+		outline: none;
+	}
+}
+
+h1, h2, h3 {
+	font-family: $accent-font;
+	font-weight: normal;
+	line-height: 1em;
+	text-align: left;
+
+	margin-bottom: 0.5em;
+	margin-top: 1em;
+	color: $color-accent-primary;
+}
+
+h1 {
+	font-size: 2.6rem;
+	margin-top: 0.5em;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid $color-border-light;
+}
+
+blockquote {
+	margin: ($main-content-padding / 2) $main-content-padding;
+	padding: 1px;
+	padding-left: 1em;
+
+	border-left: 4px solid $color-accent-secondary;
+	background-color: darken($color-background, 5%);
+}
+
+cite {
+	&::before {
+		content: '“';
+	}
+	&::after {
+		content: '”';
+	}
+}
+
+#header::before {
+	content: '';
+	display: block;
+	border-top: 4px solid $color-accent-primary;
+	border-bottom: 4px solid $color-accent-secondary;
+}
+
+@import 'parts/nav';
+
+.main {
+	width: 100%;
+	max-width: 720px;
+	display: block;
+	margin: 32px auto 64px;
+	padding: 0 $main-content-padding;
+	text-align: justify;
+	box-sizing: border-box;
+}
+
+@import 'parts/footer';
+
+.social-button {
+	$size: 32px;
+	height: $size;
+	width: $size;
+	margin: 1px 2px;
+	display: inline-block;
+
+	@mixin social-background($size: 32px, $theme: 0) {
+		// Add in the same order as in social.svg
+		background-image: url('../../assets/icons/social.svg');
+		$social-networks: (gplus, twitter, github, liam, feed, telegram, reddit);
+		$count: 0;
+		$y_base: -$size * $theme;
+		@each $network in $social-networks {
+			&.#{$network} {
+				background-position: -($count * $size) $y_base;
+			}
+			$count: $count + 1;
+		}
+
+		// Same icon with two name correspondences requires extra handling
+		&.mail {
+			$mail-index: index($social-networks, liam) - 1; // index starts on 1
+			background-position: -($mail-index * $size) $y_base;
+		}
+	}
+
+	@include social-background($size, 0);
+
+	&.light {
+		@include social-background($size, 1);
+	}
+
+	opacity: 1;
+	&:hover {
+		opacity: 0.8;
+	}
+}

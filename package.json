@@ -20,6 +20,7 @@
     "grunt-postcss": "latest"
   },
   "dependencies": {
+    "petri-nodes": "git+https://github.com/germanfr/petri-nodes.git",
     "smoothscroll": "^0.2.2"
   }
 }

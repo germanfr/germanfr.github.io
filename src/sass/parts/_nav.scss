@@ -6,62 +6,54 @@ nav#nav, #nav {
 	font-weight: bold;
 	text-align: right;
 	display: block;
+	pointer-events: none;
 	position: relative;
 
-	ul {
-		&, li {
-			list-style: none;
+	> ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		text-transform: uppercase;
+		display: inline-block;
+		position: relative;
+		pointer-events: all;
+
+		li {
+			margin: 0.5em;
 			display: inline-block;
-			text-transform: uppercase;
-			margin: 0;
-			padding: 0;
 			position: relative;
 
 			a {
-				text-decoration: none;
-				color: $text-color;
 				display: block;
-				position: relative;
-				padding: 16px;
-				text-align: center;
-				transition-property: color, background-color;
-				transition-duration: .2s;
-				transition-timing-function: linear;
+				padding: .4em .6em;
+				min-width: 3.5em;
 
-				&:hover {
-					//background-color: $primary-color;
-					color: $accent-color;
+				text-align: center;
+				white-space: nowrap;
+				text-decoration: none;
+				color: readable-text-color($color-background);
+
+				&::after {
+					content: '';
+					display: block;
+					position: absolute;
+					width: 100%;
+					height: 2px;
+					bottom: 0;
+					left: 0;
+					background-color: readable-text-color($color-background);
+					transform: scaleX(0);
+					transition: transform .2s ease;
 				}
 
-				/*&:focus {
-					background-color: $primary-color;
-					color: $white;
+				&:hover, &:focus, &:active {
 					outline: none;
-				}*/
+					&::after {
+						transform: scaleX(1);
+						transition-timing-function: cubic-bezier(.2, 1, .5, 1.4);
+					}
+				}
 			}
 		}
 	}
-
-	/*.nav-selector {
-		$height: 4px;
-		background-color: $primary-color;
-		height: $height;
-		width: 100px;
-		top: 0;
-		left: 0;
-		position: absolute;
-		z-index: -1;
-		opacity: 1;
-		transform: scale(1);
-
-		transition-duration: .2s;
-		transition-timing-function: ease-in-out;
-		transition-property: left, width, top, transform;
-
-		&.hidden {
-			transition-property: top, transform;
-			top: -$height;
-			transform: scale(0);
-		}
-	}*/
 }

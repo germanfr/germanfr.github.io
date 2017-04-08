@@ -1,23 +1,21 @@
-$white: #FAFAFA; // Has assets dependencies. Change carefully.
-$black: #333333;
+@import 'mixins';
 
-$background-color: $white;
+$color-light: #FAFAFA; // Has assets dependencies. Change carefully.
+$color-dark: #363636;
 
-$primary-color: #29365b;
-$primary-color-fg: $white;
+$color-background: $color-light;
+$color-background-dark: #111111;
 
-$accent-color: #33848A; //35989F; //64A17F
-$accent-color-fg: $white;
+$text-color: readable-text-color($color-background, $color-dark, $color-light);
+$text-color-secondary: hsl(hue($text-color), saturation(desaturate($text-color,25%)), 40%);
+$text-color-disabled: lighten(#000, 70%);
 
-$text-color: $primary-color;
-$text-secondary-color: lighten(desaturate($primary-color, 25%), 10%);
-$link-color: $accent-color;
-$link-color-highlight: lighten($link-color, 5%);
-$title-color: $primary-color;
-$desaturated-text-color: $black;
-$greyed-out-color: #909090;
+$color-accent-primary: #22BA23;
+$color-accent-secondary: #8DDA25;
+$text-color-accent-primary: readable-text-color($color-accent-primary);
+$text-color-accent-secondary: readable-text-color($color-accent-secondary);
 
-$footer-bg-color: #333333;
-$footer-fg-color: $white;
+$color-link: $color-accent-primary;
+$color-link-highlight: $color-accent-secondary;
 
-$nondistracting-border-color: #CACACA;
+$color-border-light: #CACACA;

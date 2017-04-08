@@ -50,7 +50,7 @@
 
 
 .main > aside, .main > .sidebar {
-	border-left: 1px solid $nondistracting-border-color;
+	border-left: 1px solid $color-border-light;
 	font-size: 0.9rem;
 	position: relative;
 
@@ -115,7 +115,7 @@
 	}
 
 	.date {
-		color: $greyed-out-color;
+		color: $text-color-secondary;
 		font-size: 90%;
 	}
 
@@ -135,9 +135,9 @@
 }
 
 /*.tags {
-	background-color: $accent-color-fg;
-	color: $accent-color;
-	border: 1px solid $accent-color;
+	background-color: $color-accent-secondary-fg;
+	color: $color-accent-secondary;
+	border: 1px solid $color-accent-secondary;
 	border-radius: 4px;
 
 	font-size: 0.7rem;
@@ -146,7 +146,7 @@
 
 	> * {
 		float: left;
-		border-right: 1px solid $accent-color;
+		border-right: 1px solid $color-accent-secondary;
 		text-decoration: none;
 		padding: 0 0.5em;
 		vertical-align: bottom;
@@ -156,8 +156,8 @@
 		}
 
 		&:hover {
-			background-color: $accent-color;
-			color: $accent-color-fg;
+			background-color: $color-accent-secondary;
+			color: $color-accent-secondary-fg;
 		}
 	}
 }*/
@@ -187,7 +187,7 @@
 
 	.post-info {
 		padding-bottom: $main-content-padding/2;
-		border-bottom: 1px solid $nondistracting-border-color;
+		border-bottom: 1px solid $color-border-light;
 	}
 
 	.following-pages-paginator {
@@ -234,12 +234,11 @@
 
 		transition-duration: .2s;
 		transition-property: background-color, border-color;
-		transition-timing-function: linear;
 	}
 
 	%active {
-		background-color: $accent-color;
-		color: $accent-color-fg;
+		background-color: $color-accent-secondary;
+		color: $text-color-accent-secondary;
 		outline: none;
 	}
 
@@ -247,14 +246,15 @@
 		padding: 0 1em;
 		width: calc(100% - #{$height});
 
-		border: 1px solid $primary-color;
+		border: 1px solid $color-accent-primary;
 		border-right: none;
-		background-color: $primary-color-fg;
-		color: $desaturated-text-color;
+		background-color: $color-background;
+		color: $text-color-secondary;
 
 		&:focus {
 			outline: none;
-			border-color: $accent-color;
+			border-color: $color-accent-secondary;
+			color: $text-color;
 
 			& + input[type='button'],
 			& + input[type='submit'] {
@@ -268,7 +268,7 @@
 		width: $height;
 		font-size: 0px;
 		border: none;
-		background: $primary-color url('../../assets/icons/search.svg');
+		background: $color-accent-primary url('../../assets/icons/search.svg');
 		background-size: $height * 0.6;
 		background-position: ($height * 0.2) ($height * 0.2);
 		background-repeat: no-repeat;

@@ -2,32 +2,22 @@
 
 	var ID_AGE = 'my-age',
 	    ID_HEADER = 'header',
-	    ID_HEADER_QUOTES = 'title-description',
-		ID_HEADER_CURSOR = 'title-cursor',
-		ID_HEADER_OVERLAY = 'header-bg-overlay',
+	    ID_HEADER_QUOTES = 'header-quote',
+	    ID_HEADER_CURSOR = 'header-quote-caret',
 		ID_PROJECTS_GALLERY = 'project-showcase';
 
 
-	if ('complete' === document.readyState) {
-		_main_interactive_();
-		_main_complete_();
-	} else if ('interactive' === document.readyState) {
-		_main_interactive_();
-		window.addEventListener('load', _main_complete_);
-	} else {
-		window.addEventListener('DOMContentLoaded', _main_interactive_);
-		window.addEventListener('load', _main_complete_);
-	}
+	const HeaderBg = require('./homepage/header/_bg.js');
 
-	function _main_complete_() {
-        preload_header();
-		show_github_repos();
-    }
-
-	function _main_interactive_() {
+	window.addEventListener('DOMContentLoaded', function() {
 		launch_cursor(ID_HEADER_QUOTES);
         show_age(1996, ID_AGE);
-    }
+	});
+
+	window.addEventListener('load', function() {
+		new HeaderBg().load();
+		requestAnimationFrame(show_github_repos);
+	});
 
     function show_age(birth, where) {
         var el = document.getElementById(where);

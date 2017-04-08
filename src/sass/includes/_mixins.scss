@@ -11,15 +11,19 @@
 @mixin selection($color: null) {
 	@if $color {
 		background-color: $color;
-		@if lightness($color) > 50 {
-			color: $black;
-		} @else {
-			color: $white;
-		}
+		color: readable-text-color($color);
 	} @else {
-		background-color: $accent-color;
-		color: $accent-color-fg;
+		background-color: $color-accent-secondary;
+		color: $text-color-accent-secondary;
 	}
 
 	text-shadow: none;
+}
+
+@function readable-text-color($color, $dark: $color-dark, $light: $color-light) {
+  @if (lightness($color) > 50) {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
 }

@@ -1,17 +1,17 @@
 <header id="header">
-	<div id="header-bg-overlay"></div>
+	<canvas id="header-background"></canvas>
 
 	{% include nav/main_nav_menu.html %}
 
-	<div id="intro">
-			<img id="profile-photo"
+	<div id="header-content">
+			<img id="header-profile-photo"
 				src="https://github.com/{{site.data.author.usernames.github}}.png"
-				onerror="this.src='{{ site.baseurl }}/assets/profile.png';" 
+				onerror="this.src='{{ site.baseurl }}/assets/profile.png';"
 				alt="Profile photo" />
 		</object>
 		<h1>
 			<span>I am Germán&nbsp;Franco.</span><br/>
-			<span id="title-description">{{site.data.author.self_description}}</span>
+			<span id="header-quote">{{site.data.author.self_description}}</span>
 		</h1>
 	</div>
 
