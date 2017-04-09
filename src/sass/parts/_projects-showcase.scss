@@ -10,7 +10,7 @@
 
 	$spacing: 1em;
 	margin: $spacing (-$main-content-padding / 2);
-	padding: $spacing;
+	padding: 0 $spacing;
 	box-sizing: border-box;
 
 	.project-elem {
@@ -29,8 +29,18 @@
 		color: $text-color-secondary;
 		text-align: left;
 
+		display: inline-block;
 		display: flex;
 		flex-direction: column;
+
+		@media #{$media-query-tablet} {
+			width: 70%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		@media #{$media-query-phone} {
+			width: 100%;
+		}
 
 		&-title {
 			align-self: flex-start; // Don't fill width
