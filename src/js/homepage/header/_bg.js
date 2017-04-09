@@ -17,12 +17,16 @@
 			dots.start();
 			header.style.opacity = '1';
 			window.addEventListener('resize',function() {
-				dots.resize(window.innerWidth, header.parentElement.offsetHeight)
+				dots.resize(window.innerWidth, header.parentElement.offsetHeight);
+			});
+			window.addEventListener('load', function() {
+				if(header.parentElement.offsetHeight !== dots.height)
+					dots.resize(window.innerWidth, header.parentElement.offsetHeight);
 			});
 		},
 
 		load_on: function() {
-			return 'complete';
+			return 'interactive';
 		}
 	};
 
