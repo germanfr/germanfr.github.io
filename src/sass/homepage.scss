@@ -30,6 +30,11 @@
 		box-shadow: 2px 1px 4px rgba(#000,.2);
 		margin: 8px;
 		background-color: #506379;
+
+		@media #{$media-query-phone} {
+			width: 100px;
+			height: 100px;
+		}
 	}
 
 	&-content {
@@ -42,27 +47,38 @@
 		h1 {
 			text-decoration: none;
 			text-align: center;
-			margin: 32px;
+			margin: 32px 0;
+			line-height: 0px;
+			font-size: 3rem;
+
+			span {
+				line-height: 1.25em;
+				height: 1.25em;
+				padding: 0 .3em;
+				white-space: nowrap;
+				display: inline-block;
+
+				background-color: $color-light;
+				color: desaturate($text-color, 90%);
+			}
+
+			@media #{$media-query-tablet} {
+				font-size: 2.2rem;
+				margin-bottom: 0;
+			}
+			@media #{$media-query-phone} {
+				font-size: 1.6rem;
+				margin: 16px 0 0;
+			}
 		}
 
- 		span {
-			font-size: 3rem;
-			line-height: 64px;
-			height: 64px;
-			background-color: $color-light;
-			color: desaturate($text-color,100%);
-			padding: 0 .3em;
-			white-space: nowrap;
-			display: inline-block;
+		#header-quote-caret {
+			padding-left: 0px;
+			padding-right: 0px;
+			vertical-align: bottom;
+			background-color: transparent;
 
-			&#header-quote-caret {
-				visibility: hidden;
-				padding-left: 0px;
-				padding-right: 0px;
-				vertical-align: bottom;
-
-				@extend %noselect;
-			}
+			@extend %noselect;
 		}
 	}
 

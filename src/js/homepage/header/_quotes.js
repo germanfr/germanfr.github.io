@@ -18,8 +18,7 @@
 		this.quote = QUOTES[random];
 		this.caret = caret_str || DEFAULT_CARET;
 		this.duration = 1600; //ms
-		this.interval = 100
-		this.caret_visible = false;
+		this.interval = Math.min(this.duration / this.quote.length, 100);
 	}
 
 	MyHeaderQuotes.prototype = {
@@ -62,6 +61,7 @@
 			this.caret_element.textContent = this.caret;
 			this.container.appendChild(this.caret_element);
 
+			this.caret_visible = true;
 			setInterval(this.toggle_caret.bind(this), 1000);
 		},
 
