@@ -1,6 +1,6 @@
 @import '../includes/values';
 
-nav#nav, #nav {
+#nav {
 	font-family: $accent-font;
 	font-size: 1rem;
 	font-weight: bold;
@@ -54,6 +54,17 @@ nav#nav, #nav {
 					}
 				}
 			}
+		}
+	}
+
+	@media #{$media-query-phone} {
+		font-size: .8rem;
+		text-align: center;
+		overflow-x: scroll;
+		white-space: nowrap;
+
+		> ul li {
+			margin: 0.5em 0;
 		}
 	}
 }
