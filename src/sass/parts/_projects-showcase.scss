@@ -8,26 +8,33 @@
 	flex-wrap: wrap;
 	position: relative;
 
-	text-align: left;
-	margin: 32px (-$main-content-padding / 2);
-
+	$spacing: 1em;
+	margin: $spacing (-$main-content-padding / 2);
+	padding: $spacing;
+	box-sizing: border-box;
 
 	.project-elem {
-		$vpadding: 1em;
+		$vpadding: 0.8em;
 		$hpadding: 1.2em;
+
 		position: relative;
-		width: 49%;
-		margin-bottom: $vpadding;
+		width: calc(50% - #{$spacing / 2});
+		margin: ($spacing / 2) 0;
 		padding: $vpadding $hpadding;
 		box-sizing: border-box;
 
 		background-color: $color-background;
 		border: 1px solid $color-border-light;
 		border-radius: 4px;
-		cursor: default;
+		color: $text-color-secondary;
+		text-align: left;
 
 		display: flex;
 		flex-direction: column;
+
+		&-title {
+			align-self: flex-start; // Don't fill width
+		}
 
 		&-description, &-meta {
 			font-size: 0.85rem;
@@ -35,15 +42,15 @@
 
 		&-description {
 			margin: 0.5em 0;
-			flex-grow: 1;
+			flex-grow: 1; // Grow to align to the largest sibling
 		}
 
-		&-meta {
-			color: $text-color-secondary;
-			> * {
-				float: left;
-				margin-right: .6em;
-			}
+		&-meta  > * {
+			margin-right: .6em;
+		}
+
+		&-language {
+			color: $text-color-disabled;
 		}
 
 		&.github::after {
@@ -56,12 +63,12 @@
 			bottom: $vpadding;
 			right: $hpadding;
 
-			background-size: auto $size*2;
+			background-size: auto (2 * $size);
 			background-position: -(2 * $size) 0;
 			background-image: url('../../assets/icons/social.svg');
 			opacity: 0.5;
-
 			filter: grayscale(100%);
+			pointer-events: none;
 		}
 	}
 }

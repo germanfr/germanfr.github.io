@@ -156,7 +156,7 @@
 
 			let lang = document.createElement('span');
 			lang.className = REPO_LANG_ID;
-			lang.textContent = repo.language;
+			lang.textContent = repo.language || 'Love & Magic';
 			meta.appendChild(lang);
 
 			let source = document.createElement('a');
