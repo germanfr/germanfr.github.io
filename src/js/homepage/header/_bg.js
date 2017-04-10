@@ -8,20 +8,23 @@
 	MyHeaderBg.prototype = {
 		load: function() {
 			let header = document.getElementById(HEADER_BACKGROUND_ID);
-			header.width = window.innerWidth;
-			header.height = header.parentElement.offsetHeight;
+			let parent = header.parentElement;
+			header.width = parent.clientWidth;
+			header.height = parent.clientHeight;
+
 			let dots = new petri.Petri(header, {
 				dot_density: 0.3,
 				with_cursor: true
 			});
 			dots.start();
 			header.style.opacity = '1';
-			window.addEventListener('resize',function() {
-				dots.resize(window.innerWidth, header.parentElement.offsetHeight);
+
+			window.addEventListener('resize', function() {
+				dots.resize(parent.clientWidth, parent.clientHeight);
 			});
 			window.addEventListener('load', function() {
-				if(header.parentElement.offsetHeight !== dots.height)
-					dots.resize(window.innerWidth, header.parentElement.offsetHeight);
+				if(parent.clientHeight !== header.height)
+					dots.resize(parent.clientWidth, parent.clientHeight);
 			});
 		},
 
