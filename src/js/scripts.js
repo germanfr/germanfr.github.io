@@ -1,26 +1,16 @@
 (function() { 'use strict'
 
-	window.smoothScroll = require('smoothscroll');
+	require('smoothscroll');
 
-	if(document.readyState === 'interactive') {
-		_main_();
-	} else {
-		window.addEventListener('DOMContentLoaded', _main_);
-	}
-
-	function _main_() {
+	window.addEventListener('DOMContentLoaded', function () {
 		set_emails();
 		adjust_footer();
-		//nav_selector();
-	}
+	});
 
 	function adjust_footer() {
 		var footer = document.getElementById('footer');
-		var margin_property = window.getComputedStyle(footer).getPropertyValue('margin-top');
-		var margin_value = margin_property ? parseInt(margin_property, 10) : 0;
-
-		var wrapper = document.getElementById('wrapper');
-		wrapper.style.paddingBottom = footer.offsetHeight + margin_value + 'px';
+		var wrapper = footer.parentElement;
+		wrapper.style.paddingBottom = footer.offsetHeight + 'px';
 		footer.classList.add('floating-footer');
 	}
 
@@ -74,38 +64,5 @@
 		}
 		return  name.join('') + '\u0040' + raw[1];
 	}
-
-	/*
-	function nav_selector() {
-		var nav = document.getElementById('nav');
-		var children = get_child_nodes_array_by_class(nav, 'root-entry');
-		var selector = nav.getElementsByClassName('nav-selector')[0];
-		nav.addEventListener('mouseover', function(e) {
-			var target = e.target;
-			if(children.indexOf(target) >= 0) {
-				selector.style.left = target.offsetLeft + 'px';
-				selector.style.width = target.offsetWidth + 'px';
-				selector.classList.remove('hidden');
-				e.stopPropagation();
-
-			} else {
-				selector.classList.add('hidden');
-			}
-
-		});
-		nav.addEventListener('mouseleave', function(e) {
-			selector.classList.add('hidden');
-		});
-	}
-
-	function get_child_nodes_array_by_class(parent, classname) {
-		var children_nodelist = parent.getElementsByClassName(classname);
-		var children_array = [];
-		for(var i=0, len = children_nodelist.length; i < len; i++) {
-			children_array[i] = children_nodelist.item(i);
-		}
-		return children_array;
-	}
-	*/
 
  })();

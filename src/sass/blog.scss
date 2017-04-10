@@ -95,7 +95,7 @@
 	@media #{$media-query-tablet}, #{$media-query-phone} {
 		flex-direction: column;
 		align-items: stretch;
-		margin-bottom: 8px;
+
 		> .content, > .sidebar {
 			width: auto;
 			max-width: none;
