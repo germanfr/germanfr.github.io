@@ -4,6 +4,12 @@
 
 @import 'parts/code-highlight.scss';
 
+#page-title {
+	@media #{$media-query-phone} {
+		font-size: 1.6rem;
+	}
+}
+
 .main {
 	$max-width: 1080px;
 	$content-max-width: $max-width * 0.7;
@@ -38,53 +44,74 @@
 		max-width: $sidebar-max-width;
 		text-align: left;
 	}
-}
 
-.main > .content {
-
-	.share-buttons-block {
+	> .content .share-buttons-block {
 		display: block;
 		text-align: center;
 	}
+
+	> aside, > .sidebar {
+		border-left: 1px solid $color-border-light;
+		font-size: 0.9rem;
+		position: relative;
+
+		> div {
+			margin: 1rem 0;
+			display: block;
+
+			ul {
+				margin: 0;
+			}
+		}
+
+		.input-search {
+			max-width: $sidebar-max-width;
+		}
+
+		.links-list-block {
+			padding: 0 0.5em;
+			margin-top: 0.5em;
+			list-style: none;
+
+			li {
+				line-height: 1.4em;
+				margin-bottom: 0.6em;
+			}
+
+			.more-link {
+				//margin-top: 1em;
+				text-align: right;
+			}
+		}
+
+		.share-buttons-block {
+			text-align: center;
+			/*h3 {
+				text-align: left;
+			}*/
+		}
+	}
+
+	@media #{$media-query-tablet}, #{$media-query-phone} {
+		flex-direction: column;
+		align-items: stretch;
+		margin-bottom: 8px;
+		> .content, > .sidebar {
+			width: auto;
+			max-width: none;
+		}
+
+		> .content {
+			margin-bottom: 2em;
+		}
+	}
+
 }
 
-
-.main > aside, .main > .sidebar {
-	border-left: 1px solid $color-border-light;
-	font-size: 0.9rem;
-	position: relative;
-
-	> div {
-		margin: 1rem 0;
-		display: block;
-
-		ul {
-			margin: 0;
-		}
-	}
-
-	.links-list-block {
-		padding: 0 0.5em;
-		margin-top: 0.5em;
-		list-style: none;
-
-		li {
-			line-height: 1.4em;
-			margin-bottom: 0.6em;
-		}
-
-		.more-link {
-			//margin-top: 1em;
-			text-align: right;
-		}
-	}
-
-	.share-buttons-block {
-		text-align: center;
-		/*h3 {
-			text-align: left;
-		}*/
-	}
+/* Written on ... by ... */
+.post-meta {
+	color: $text-color-secondary;
+	text-align: initial;
 }
 
 .more-link {
@@ -193,6 +220,7 @@
 	.following-pages-paginator {
 		position: relative;
 		display: flex;
+		flex-wrap: wrap;
 
 		.posterior, .previous {
 			position: relative;
