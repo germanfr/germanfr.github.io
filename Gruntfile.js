@@ -17,16 +17,21 @@ module.exports = function (grunt) {
 		},
 		postcss: {
 			dist: {
-				src: 'src/css/**/*.css',
+				cwd: 'dist/css/',
+				src: '**/*.css',
+				dest: 'dist/css/',
 				expand: true
 			},
 			options: {
-				map: false,
 				processors: [
 					require('autoprefixer')({
-						browsers: ['> 0.5%']
+						browsers: [
+							'> 0.5%',
+							'last 2 versions',
+						]
 					})
-				]
+				],
+				map: false
 			}
 		},
 		cssmin: {
