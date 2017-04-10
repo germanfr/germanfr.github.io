@@ -18,7 +18,7 @@
 		this.quote = QUOTES[random];
 		this.caret = caret_str || DEFAULT_CARET;
 		this.duration = 1600; //ms
-		this.interval = Math.min(this.duration / this.quote.length, 100);
+		this.interval = Math.min(this.duration / this.quote.length, 64);
 	}
 
 	MyHeaderQuotes.prototype = {
