@@ -8,6 +8,7 @@
 	background-color: $footer-bg-color;
 	margin-top: 64px;
 	box-sizing: border-box;
+	position: relative;
 
 	// Sections
 	> div {
@@ -76,6 +77,7 @@
 		color: darken($footer-text-color, 5%);
 		font-size: .8rem;
 		line-height: 1.2em;
+		position: relative;
 
 		$ncolumns: 3;
 		display: block;
@@ -86,6 +88,7 @@
 
 		// Columns
 		> div {
+			position: relative;
 			width: (100%) / $ncolumns;
 			padding: 0 16px;
 			box-sizing: border-box;
@@ -102,6 +105,7 @@
 
 			@media #{$media-query-phone} {
 				width: 100%;
+				display: block;
 				text-align: center !important;
 				margin: 8px 0;
 
