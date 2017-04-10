@@ -77,30 +77,37 @@
 		font-size: .8rem;
 		line-height: 1.2em;
 
-		$n-columns: 3;
+		$ncolumns: 3;
 		display: block;
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: flex-start;
+		justify-content: space-between;
 		align-items: stretch;
 
 		// Columns
 		> div {
-			width: (100%) / $n-columns;
+			width: (100%) / $ncolumns;
 			padding: 0 16px;
 			box-sizing: border-box;
 			flex-shrink: 0;
+			text-align: center;
 
-			&:first-child, &:nth-child(3n - 2) {
+			&:nth-child(#{$ncolumns}n - #{$ncolumns - 1}) {
 				text-align: left;
 			}
 
-			&:nth-child(2), &:nth-child(3n - 1) {
-				text-align: center;
+			&:nth-child(3n) {
+				text-align: right;
 			}
 
-			&:last-child, &:nth-child(3n) {
-				text-align: right;
+			@media #{$media-query-phone} {
+				width: 100%;
+				text-align: center !important;
+				margin: 8px 0;
+
+				&#footer-back-to-top {
+					order: $ncolumns;
+				}
 			}
 		}
 	}
