@@ -8,7 +8,6 @@
 	const modules = [
 		new HeaderBg(),
 		new HeaderQuotes(),
-		new AgeCalculator('1996/05'),
 		new GithubRepos('germanfr')
 	];
 
