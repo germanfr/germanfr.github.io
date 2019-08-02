@@ -2,18 +2,12 @@
 	<div id="sup-footer">
 		<div id="social">
 			<p>Find me on:</p>
-			<a class="social-button gplus light"
+			{%- for sn in site.data.author.social %}
+			<a class="social-button {{ sn[0] }} light"
 			   rel="external"
-			   href="https://plus.google.com/{{site.data.author.usernames.gplus}}/"
-			   title="Follow me on Google+"></a>
-			<a class="social-button twitter light"
-			   rel="external"
-			   href="http://twitter.com/{{site.data.author.usernames.twitter}}"
-			   title="Follow me on Twitter"></a>
-			<a class="social-button github light"
-			   rel="external"
-			   href="http://github.com/{{site.data.author.usernames.github}}/"
-			   title="Follow me on GitHub"></a>
+			   href="{{ sn[1].url }}"
+			   title="{{ sn[1].title }}"></a>
+			{%- endfor %}
 			<a class="social-button liam light"
 			   href="mailto:{{ site.data.author.email }}"
 			   title="Send me an email"></a>

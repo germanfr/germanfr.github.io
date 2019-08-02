@@ -14,7 +14,7 @@ layout: homepage
 <p>
 	Here are some little thingies I have done and some of my GitHub repos.<br>
 	See the full list <a title="My GitHub account" rel="external"
-	 href="http://github.com/{{ site.data.author.usernames.github }}">on GitHub</a>.
+	 href="{{ site.data.author.social.github.url }}">on GitHub</a>.
 </p>
 
 {% include widgets/project_gallery/gallery.html %}
@@ -27,15 +27,13 @@ layout: homepage
 	(on the Internet, don't follow me to my house).
 </p>
 <p>
-	<a title="Follow me on Google+"
-	   href="https://plus.google.com/{{site.data.author.usernames.gplus}}/"
-	   rel="external">Google+</a>,
-	<a title="Follow me on Twitter"
-	   href="http://twitter.com/{{site.data.author.usernames.twitter}}"
-	   rel="external">Twitter</a>,
-	<a title="Follow me on GitHub"
-	   href="http://github.com/{{site.data.author.usernames.github}}/"
-	   rel="external">GitHub</a> or
+	{%- for sn in site.data.author.social %}
+	<a rel="external"
+	   href="{{ sn[1].url }}"
+	   title="{{ sn[1].title }}">{{ sn[1].name }}</a>
+	   {% unless forloop.last %},{% endunless %}
+	{%- endfor %}
+	or
 	<a title="Send me an email" class="liam"
 	   href="mailto:{{site.data.author.email}}"
 	   rel="external">send me an email</a>.

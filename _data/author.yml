@@ -2,11 +2,21 @@ name: Germán Franco
 # Email must be encrypted my way
 email: drefvngaemr@gmail.com
 self_description: Please, marry me
-usernames:
-    github:  germanfr
-    twitter: _germanfr
-    gplus: 105164701606585758145
-    codepen: germanfr
+social:
+    github:
+        name: GitHub
+        title: Follow me on GitHub
+        user: germanfr
+        url: https://github.com/germanfr
+    twitter:
+        name: Twitter
+        title: Follow me on Twitter
+        user: "@_germanfr"
+        url: https://twitter.com/_germanfr
+    linkedin:
+        name: LinkedIn
+        title: Follow me on LinkedIn
+        url: https://www.linkedin.com/in/germanfr
 
 #Please, marry me
 #Person and thinker (crazy)

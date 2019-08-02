@@ -1,1 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Noto+Sans);@import url(https://fonts.googleapis.com/css?family=Exo+2|Rubik);#project-showcase{display:block!important}#project-showcase .error-message{color:#666;font-style:italic;text-align:center}#header #header-bg-overlay{display:none}
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
+@import url("https://fonts.googleapis.com/css?family=Exo+2|Rubik");
+#project-showcase {
+  display: block !important; }
+  #project-showcase .error-message {
+    color: #666666;
+    font-style: italic;
+    text-align: center; }
+
+#header #header-bg-overlay {
+  display: none; }
