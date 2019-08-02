@@ -36,5 +36,5 @@ exclude:
  - package.json
  - README.md
 
-gems:
+plugins:
  - jekyll-paginate
