@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 			options: {
 				processors: [
 					require('autoprefixer')({
-						browsers: [
+						overrideBrowserslist: [
 							'> 0.5%',
 							'last 2 versions',
 						]
