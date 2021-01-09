@@ -31,11 +31,6 @@ html {
 :focus {
   outline: 2px solid rgba(141, 218, 37, 0.5); }
 
-::-moz-selection {
-  background-color: #8DDA25;
-  color: #FAFAFA;
-  text-shadow: none; }
-
 ::selection {
   background-color: #8DDA25;
   color: #FAFAFA;
@@ -132,19 +127,13 @@ cite::after {
           bottom: 0;
           left: 0;
           background-color: #363636;
-          -webkit-transform: scaleX(0);
-                  transform: scaleX(0);
-          -webkit-transition: -webkit-transform .2s ease;
-          transition: -webkit-transform .2s ease;
-          transition: transform .2s ease;
-          transition: transform .2s ease, -webkit-transform .2s ease; }
+          transform: scaleX(0);
+          transition: transform .2s ease; }
         #nav > ul li a:hover, #nav > ul li a:focus, #nav > ul li a:active {
           outline: none; }
           #nav > ul li a:hover::after, #nav > ul li a:focus::after, #nav > ul li a:active::after {
-            -webkit-transform: scaleX(1);
-                    transform: scaleX(1);
-            -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.5, 1.4);
-                    transition-timing-function: cubic-bezier(0.2, 1, 0.5, 1.4); }
+            transform: scaleX(1);
+            transition-timing-function: cubic-bezier(0.2, 1, 0.5, 1.4); }
   @media (max-width: 479px) {
     #nav {
       font-size: .8rem;
@@ -208,24 +197,16 @@ cite::after {
     line-height: 1.2em;
     position: relative;
     display: block;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch; }
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch; }
     #footer #sub-footer > div {
       position: relative;
       width: 33.3333333333%;
       padding: 0 16px;
       box-sizing: border-box;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
+      flex-shrink: 0;
       text-align: center; }
       #footer #sub-footer > div:nth-child(3n - 2) {
         text-align: left; }
@@ -238,9 +219,7 @@ cite::after {
           text-align: center !important;
           margin: 8px 0; }
           #footer #sub-footer > div#footer-back-to-top {
-            -webkit-box-ordinal-group: 4;
-                -ms-flex-order: 3;
-                    order: 3; } }
+            order: 3; } }
   #footer.floating-footer {
     position: absolute;
     bottom: 0;
@@ -296,3 +275,27 @@ cite::after {
       background-position: -96px -32px; }
   .social-button:hover {
     opacity: 0.8; }
+
+* {
+  /* Firefox only (for now) */
+  scrollbar-width: thin;
+  /* scrollbar-color: rgba(100,100,100,.75) rgba(127,127,127,.25); */ }
+
+/* SCROLLBARS */
+::-webkit-scrollbar {
+  /* width */
+  width: 6px;
+  height: 6px; }
+
+::-webkit-scrollbar-track {
+  /* Track */
+  background: rgba(127, 127, 127, 0.25); }
+
+::-webkit-scrollbar-thumb {
+  /* Handle */
+  background: rgba(100, 100, 100, 0.75);
+  min-height: 32px; }
+
+::-webkit-scrollbar-thumb:hover {
+  /* Handle on hover */
+  background: rgba(50, 50, 50, 0.75); }

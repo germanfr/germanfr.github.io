@@ -270,21 +270,13 @@ code {
 
 .main {
   padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
   max-width: 1080px; }
   .main > .content-header {
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
+    flex-shrink: 0;
     margin-right: auto; }
   .main > .content-header,
   .main > .content,
@@ -328,13 +320,8 @@ code {
       }*/ }
   @media (min-width: 480px) and (max-width: 599px), (max-width: 479px) {
     .main {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      -webkit-box-align: stretch;
-          -ms-flex-align: stretch;
-              align-items: stretch; }
+      flex-direction: column;
+      align-items: stretch; }
       .main > .content, .main > .sidebar {
         width: auto;
         max-width: none; }
@@ -456,16 +443,11 @@ code {
     border-bottom: 1px solid #CECECE; }
   #post-footer .following-pages-paginator {
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap; }
+    flex-wrap: wrap; }
     #post-footer .following-pages-paginator .posterior, #post-footer .following-pages-paginator .previous {
       position: relative;
-      -webkit-box-flex: 1;
-          -ms-flex-positive: 1;
-              flex-grow: 1;
+      flex-grow: 1;
       min-width: 30%;
       box-sizing: border-box;
       padding: 0 1em; }
@@ -488,9 +470,7 @@ code {
     font-size: 0.8rem;
     vertical-align: top;
     box-sizing: border-box;
-    -webkit-transition-duration: .2s;
-            transition-duration: .2s;
-    -webkit-transition-property: background-color, border-color;
+    transition-duration: .2s;
     transition-property: background-color, border-color; }
   .input-search input[type='search']:focus + input[type='button'], .input-search input[type='search']:focus + input[type='submit'], .input-search input[type='button']:hover, .input-search input[type='button']:active,
   .input-search input[type='submit']:hover,
