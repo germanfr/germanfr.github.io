@@ -4,17 +4,19 @@ layout: homepage
 
 <h2 id="about">Who is this person</h2>
 <p>
-	Hey, my name is Germán and I'm a <i>Computer Science</i> student. I like free
-	software and so I try to help as much as I can, both contributing to
-	existing projects or creating some on my own. You probably found me because
-	of this fact. Welcome to my website!
+	Hola! My name is Germán and I'm a computer sciene engineer based in Madrid.
+</p>
+<p>
+	Welcome to my website!
 </p>
 
 <h2 id="work">My work</h2>
 <p>
-	Here are some little thingies I have done and some of my GitHub repos.<br>
-	See the full list <a title="My GitHub account" rel="external"
-	 href="{{ site.data.author.social.github.url }}">on GitHub</a>.
+	Here are some of my free software projects.
+	Check out
+	<a href="{{ site.data.author.social.github.url }}" title="My GitHub account" rel="external">
+		my Github profile
+	</a>.
 </p>
 
 {% include widgets/project_gallery/gallery.html %}
@@ -22,19 +24,14 @@ layout: homepage
 
 <h2 id="contact">Contact me</h2>
 <p>
-	Here it's me on different places of the Internet.
-	Please, contact me if you have any question and follow me
-	(on the Internet, don't follow me to my house).
 </p>
-<p>
-	{%- for sn in site.data.author.social %}
-	<a rel="external"
-	   href="{{ sn[1].url }}"
-	   title="{{ sn[1].title }}">{{ sn[1].name }}</a>
-	   {% unless forloop.last %},{% endunless %}
-	{%- endfor %}
-	or
-	<a title="Send me an email" class="liam"
+	You can find me on <a rel="external"
+	   href="{{ site.data.author.social.linkedin.url }}"
+	   title="{{ site.data.author.social.linkedin.title }}">LinkedIn</a>
+	or reach me by <a title="Send me an email" class="liam"
 	   href="mailto:{{site.data.author.email}}"
-	   rel="external">send me an email</a>.
+	   rel="external">email</a>.
+	We can always chat on <a rel="external"
+	   href="{{ site.data.author.social.twitter.url }}"
+	   title="{{ site.data.author.social.twitter.title }}">Twitter</a> too.
 </p>
