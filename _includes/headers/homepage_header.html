@@ -9,9 +9,24 @@
 				onerror="this.src='{{ site.baseurl }}/assets/profile.png';"
 				alt="Profile photo" height="140" width="140"/>
 		<h1>
-			<span>I am Germán&nbsp;Franco.</span><br/>
+			<span>I am Germán&nbsp;Franco</span><br/>
 			<span id="header-quote">{{site.data.author.self_description}}</span>
 		</h1>
-	</div>
 
+		<div class="social-buttons-container">
+			{%- for sn in site.data.author.social %}
+				<a class="social-button {{ sn[0] }} light"
+				   rel="external"
+				   target="_blank"
+				   href="{{ sn[1].url }}"
+				   title="{{ sn[1].title }}"></a>
+			{%- endfor %}
+			<a class="social-button liam light"
+			   href="mailto:{{ site.data.author.email }}"
+			   title="Send me an email"></a>
+			<a class="social-button feed light"
+			   href="{{ site.baseurl }}{{ site.feed.path }}"
+			   title="Subscribe to my Feed"></a>
+		</div>
+	</div>
 </header>

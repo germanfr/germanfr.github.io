@@ -167,8 +167,6 @@ cite::after {
       color: #22BA23; }
   #footer #sup-footer > div {
     margin: 8px 0px; }
-  #footer #sup-footer #social {
-    cursor: default; }
   #footer #sup-footer ul.link-list {
     cursor: default;
     list-style: none;
@@ -299,3 +297,7 @@ cite::after {
 ::-webkit-scrollbar-thumb:hover {
   /* Handle on hover */
   background: rgba(50, 50, 50, 0.75); }
+
+.social-buttons-container {
+  text-align: center;
+  pointer-events: auto; }
