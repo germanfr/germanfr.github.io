@@ -62,12 +62,11 @@
         color: #363636; }
       @media (min-width: 480px) and (max-width: 599px) {
         #header-content h1 {
-          font-size: 2.2rem;
-          margin-bottom: 0; } }
+          font-size: 2.2rem; } }
       @media (max-width: 479px) {
         #header-content h1 {
           font-size: 1.6rem;
-          margin: 16px 0 0; } }
+          margin: 16px 0; } }
     #header-content #header-quote-caret {
       padding-left: 0px;
       padding-right: 0px;
