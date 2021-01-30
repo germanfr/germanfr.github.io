@@ -35,6 +35,7 @@ exclude:
  - Gruntfile.js
  - package.json
  - README.md
+ - .sass_cache
 
 plugins:
  - jekyll-paginate
