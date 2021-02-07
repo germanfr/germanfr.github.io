@@ -167,6 +167,8 @@ cite::after {
       color: #22BA23; }
   #footer #sup-footer > div {
     margin: 8px 0px; }
+  #footer #sup-footer #social {
+    cursor: default; }
   #footer #sup-footer ul.link-list {
     cursor: default;
     list-style: none;
@@ -249,6 +251,8 @@ cite::after {
     background-position: -192px 0px; }
   .social-button.linkedin {
     background-position: -224px 0px; }
+  .social-button.dribbble {
+    background-position: -256px 0px; }
   .social-button.mail {
     background-position: -96px 0px; }
   .social-button.light {
@@ -269,6 +273,8 @@ cite::after {
       background-position: -192px -32px; }
     .social-button.light.linkedin {
       background-position: -224px -32px; }
+    .social-button.light.dribbble {
+      background-position: -256px -32px; }
     .social-button.light.mail {
       background-position: -96px -32px; }
   .social-button:hover {

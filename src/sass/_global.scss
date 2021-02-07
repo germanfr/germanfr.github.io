@@ -135,7 +135,7 @@ cite {
 	@mixin social-background($size: 32px, $theme: 0) {
 		// Add in the same order as in social.svg
 		background-image: url('../../assets/icons/social.svg');
-		$social-networks: (other, twitter, github, liam, feed, telegram, reddit, linkedin);
+		$social-networks: (other, twitter, github, liam, feed, telegram, reddit, linkedin, dribbble);
 		$count: 0;
 		$y_base: -$size * $theme;
 		@each $network in $social-networks {
