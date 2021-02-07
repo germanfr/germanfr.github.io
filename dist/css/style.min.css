@@ -228,13 +228,43 @@ cite::after {
     width: 100%;
     box-sizing: border-box; }
 
+* {
+  /* Firefox only (for now) */
+  scrollbar-width: thin;
+  /* scrollbar-color: rgba(100,100,100,.75) rgba(127,127,127,.25); */ }
+
+/* SCROLLBARS */
+::-webkit-scrollbar {
+  /* width */
+  width: 6px;
+  height: 6px; }
+
+::-webkit-scrollbar-track {
+  /* Track */
+  background: rgba(127, 127, 127, 0.25); }
+
+::-webkit-scrollbar-thumb {
+  /* Handle */
+  background: rgba(100, 100, 100, 0.75);
+  min-height: 32px; }
+
+::-webkit-scrollbar-thumb:hover {
+  /* Handle on hover */
+  background: rgba(50, 50, 50, 0.75); }
+
+.social-buttons-container {
+  text-align: center;
+  pointer-events: auto; }
+
 .social-button {
   height: 32px;
   width: 32px;
   margin: 1px 2px;
   display: inline-block;
+  border-radius: 50%;
   background-image: url("../../assets/icons/social.svg");
-  opacity: 1; }
+  box-shadow: 0 0 0 0 transparent;
+  transition: .4s box-shadow; }
   .social-button.other {
     background-position: 0px 0px; }
   .social-button.twitter {
@@ -277,33 +307,6 @@ cite::after {
       background-position: -256px -32px; }
     .social-button.light.mail {
       background-position: -96px -32px; }
-  .social-button:hover {
-    opacity: 0.8; }
-
-* {
-  /* Firefox only (for now) */
-  scrollbar-width: thin;
-  /* scrollbar-color: rgba(100,100,100,.75) rgba(127,127,127,.25); */ }
-
-/* SCROLLBARS */
-::-webkit-scrollbar {
-  /* width */
-  width: 6px;
-  height: 6px; }
-
-::-webkit-scrollbar-track {
-  /* Track */
-  background: rgba(127, 127, 127, 0.25); }
-
-::-webkit-scrollbar-thumb {
-  /* Handle */
-  background: rgba(100, 100, 100, 0.75);
-  min-height: 32px; }
-
-::-webkit-scrollbar-thumb:hover {
-  /* Handle on hover */
-  background: rgba(50, 50, 50, 0.75); }
-
-.social-buttons-container {
-  text-align: center;
-  pointer-events: auto; }
+  .social-button:focus, .social-button:hover {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); }
