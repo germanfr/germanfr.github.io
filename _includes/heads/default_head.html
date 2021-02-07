@@ -11,7 +11,9 @@
 {% if page.stylesheet %}
 	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/dist/css/{{ page.stylesheet }}.min.css"/>
 {% endif %}
-<link rel="shortcut icon" href="{{ site.baseurl }}/favicon.png"/>
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/favicon.png" sizes="16x16">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/favicon-32.png" sizes="32x32">
+
 
 <meta name="og:title" property="og:title" content="{{ page_title }}">
 <meta name="og:url" property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
