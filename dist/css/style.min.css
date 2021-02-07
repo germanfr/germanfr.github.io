@@ -138,7 +138,7 @@ cite::after {
     #nav {
       font-size: .8rem;
       text-align: center;
-      overflow-x: scroll;
+      overflow-x: auto;
       white-space: nowrap; }
       #nav > ul li {
         margin: 0.5em 0; } }

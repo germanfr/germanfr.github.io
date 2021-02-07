@@ -60,7 +60,7 @@
 	@media #{$media-query-phone} {
 		font-size: .8rem;
 		text-align: center;
-		overflow-x: scroll;
+		overflow-x: auto;
 		white-space: nowrap;
 
 		> ul li {
