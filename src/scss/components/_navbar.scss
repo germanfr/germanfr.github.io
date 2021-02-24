@@ -4,6 +4,11 @@
 	font-family: $headings-font-family;
 	text-transform: uppercase;
 
+	// Not a lot of content for now
+	@include media-breakpoint-up(md) {
+		visibility: hidden;
+	}
+
 	ul.navbar-nav {
 		margin: 0;
 		padding: 0;
