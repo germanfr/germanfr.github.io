@@ -17,8 +17,8 @@ const { spawn } = require('child_process');
 
 const SASS_SRC = 'src/scss/';
 const JS_SRC = 'src/js/';
-const JS_DEST = 'site/assets/dist/js/';
-const CSS_DEST = 'site/assets/dist/css/';
+const JS_DEST = 'docs/assets/dist/js/';
+const CSS_DEST = 'docs/assets/dist/css/';
 
 
 function css(dev = false) {

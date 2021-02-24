@@ -6,7 +6,7 @@
 **/*.min.js binary
 
 _site/** binary
-site/assets/dist/** binary
+docs/assets/dist/** binary
 
 package-lock.json binary
 
