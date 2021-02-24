@@ -31,11 +31,11 @@ timezone: Europe/Madrid
 # Build settings
 livereload: true    # You no longer need to include --livereload
 
-source: src/site/
-keep_files:
- - assets/js
- - assets/css
- - assets/fonts
+source: site/
+# keep_files:
+#  - assets/js
+#  - assets/css
+#  - assets/fonts
 
 # exclude:
 #  - src

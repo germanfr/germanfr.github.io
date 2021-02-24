@@ -4,7 +4,10 @@
 # Don't want these in diffs
 **/*.min.css binary
 **/*.min.js binary
+
 _site/** binary
+site/assets/dist/** binary
+
 package-lock.json binary
 
 # Ignore generated files from languages used statistic

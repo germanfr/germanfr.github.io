@@ -17,8 +17,8 @@ const { spawn } = require('child_process');
 
 const SASS_SRC = 'src/scss/';
 const JS_SRC = 'src/js/';
-const JS_DEST = '_site/assets/js/';
-const CSS_DEST = '_site/assets/css/';
+const JS_DEST = 'site/assets/dist/js/';
+const CSS_DEST = 'site/assets/dist/css/';
 
 
 function css(dev = false) {
@@ -31,6 +31,7 @@ function css(dev = false) {
 					includePaths: 'node_modules/',
 				}).on('error', sass.logError))
 			.pipe(sourcemaps.write('.'))
+			// .pipe(rename({ suffix: '.min' }))
 			.pipe(dest(CSS_DEST));
 	}
 }
@@ -49,7 +50,7 @@ function js(dev = false) {
 				.pipe(source(file))
 				.pipe(buffer())
 				.pipe(gulpif(!dev, minifyJS()))
-				// .pipe(rename({ suffix: '.min' }))
+				.pipe(rename({ suffix: '.min' }))
 				.pipe(dest(JS_DEST));
 		}));
 	}
@@ -99,7 +100,7 @@ function watchTask(cb) {
 
 
 
-const defaultTask = parallel(css(), js(), jekyll());
+const defaultTask = series(parallel(css(), js()), jekyll());
 
 
 module.exports = {
