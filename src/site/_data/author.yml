@@ -1,0 +1,27 @@
+name: Germán Franco
+self_description: 👽 Hello world!
+real_email: dev.germanfr@gmail.com
+# Email must be encrypted my way
+email: cmZuYW1yZWcudmVk#yahoo.com
+
+location: Madrid, Spain
+work_position: Full-stack developer
+social:
+    github:
+        name: GitHub
+        title: Follow me on GitHub
+        user: germanfr
+        url: https://github.com/germanfr
+    twitter:
+        name: Twitter
+        title: Follow me on Twitter
+        user: "@_germanfr"
+        url: https://twitter.com/_germanfr
+    linkedin:
+        name: LinkedIn
+        title: Follow me on LinkedIn
+        url: https://www.linkedin.com/in/germanfr
+    dribbble:
+        name: Dribbble
+        title: Follow me on Dribbble
+        url: https://dribbble.com/germanfr

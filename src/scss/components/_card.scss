@@ -1,0 +1,32 @@
+.card {
+	// box-shadow: $box-shadow;
+	// margin-bottom: map-get($spacers, 4);
+	background: $card-bg;
+	border-radius: $card-border-radius;
+	color: $card-color;
+
+	border: $card-border-width solid $card-border-color;
+	margin-bottom: $card-group-margin;
+	box-shadow: $card-box-shadow;
+	display: flex;
+	flex-direction: column;
+
+	&-header {
+		display: block;
+		padding: $card-spacer-y $card-spacer-x 0;
+	}
+
+	&-body {
+		display: block;
+		padding: $card-spacer-y $card-spacer-x;
+		flex-grow: 1;
+	}
+
+	&-footer {
+		display: block;
+		padding: 0 $card-spacer-x $card-spacer-y;
+		// background: $gray-100;
+		// border-top: $card-border-width solid $card-border-color;
+		// border-radius: 0 0 $card-inner-border-radius $card-inner-border-radius;
+	}
+}

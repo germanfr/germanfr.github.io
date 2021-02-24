@@ -1,0 +1,75 @@
+---
+layout: default
+html_head: homepage
+header: homepage
+---
+
+<div class="container-lg">
+	<section class="mb-5">
+		<h2 id="about">About me</h2>
+		<p>
+			Hola! My name is Germán and I'm a computer science engineer based in Madrid.
+		</p>
+		<p>
+			Welcome to my website!
+		</p>
+
+		<!-- <div class="0card">
+			<div class="0card-body">
+				{%- if site.data.author.self_description %}
+				<h6 class="header-quote">{{site.data.author.self_description}}</h6>
+				{%- endif %}
+				<ul class="list-unstyled mb-0">
+					{%- if site.data.author.email %}
+					<li>
+						<i class="far fa-fw fa-envelope"></i> <a href="mailto:{{ site.data.author.email }}">{{ site.data.author.email }}</a>
+					</li>
+					{%- endif %}
+					{%- if site.data.author.location %}
+					<li>
+						<i class="fas fa-fw fa-map-marker-alt"></i> {{ site.data.author.location }}
+					</li>
+					{%- endif %}
+					{%- if site.data.author.work_position %}
+					<li>
+						<i class="fas fa-fw fa-briefcase"></i> {{ site.data.author.work_position }}
+					</li>
+					{%- endif %}
+				</ul>
+			</div>
+		</div> -->
+	</section>
+
+	<section class="mb-5">
+		<h2 id="work">My work</h2>
+		<p>
+			Here are some of my free software projects.
+			Check out
+			<a href="{{ site.data.author.social.github.url }}" title="My GitHub account" rel="external">my Github profile</a>.
+		</p>
+
+		<div id="projects-container" class="my-4">
+			<projects-container username="germanfr"></projects-container>
+		</div>
+	</section>
+
+
+
+	<!-- <section class="mb-5">
+		<h2 id="contact">Contact me</h2>
+		<p>
+			You can find me on <a rel="external"
+				href="{{ site.data.author.social.linkedin.url }}"
+				title="{{ site.data.author.social.linkedin.title }}">LinkedIn</a>
+			or reach me by <a title="Send me an email" class="liam"
+				href="mailto:{{site.data.author.email}}"
+				rel="external">email</a>.
+			We can always chat on <a rel="external"
+				href="{{ site.data.author.social.twitter.url }}"
+				title="{{ site.data.author.social.twitter.title }}">Twitter</a> too.
+		</p>
+	</section> -->
+
+</div>
+
+{%- include dev/bs_grid.html -%}

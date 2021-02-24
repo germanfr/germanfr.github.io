@@ -1,0 +1,60 @@
+{
+	"C": {
+		"color": "#555555"
+	},
+	"C#": {
+		"color": "#178600"
+	},
+	"C++": {
+		"color": "#f34b7d"
+	},
+	"CSS": {
+		"color": "#563d7c"
+	},
+	"HTML": {
+		"color": "#e34c26"
+	},
+	"Java": {
+		"color": "#b07219"
+	},
+	"JavaScript": {
+		"color": "#f1e05a",
+		"short": "JS"
+	},
+	"JSON": {
+		"color": "#dad2be"
+	},
+	"Kotlin": {
+		"color": "#F18E33"
+	},
+	"Lua": {
+		"color": "#000080"
+	},
+	"Makefile": {
+		"color": "#427819",
+		"short": "Make"
+	},
+	"Markdown": {
+		"color": "#083fa1",
+		"short": "MD"
+	},
+	"Meson": {
+		"color": "#007800"
+	},
+	"PHP": {
+		"color": "#4F5D95"
+	},
+	"Python": {
+		"color": "#3572A5"
+	},
+	"SCSS": {
+		"color": "#c6538c"
+	},
+	"Shell": {
+		"color": "#89e051"
+	},
+	"TypeScript": {
+		"color": "#2b7489",
+		"short": "TS"
+	}
+}

@@ -1,0 +1,15 @@
+<div class="social-buttons-container">
+	{%- for sn in site.data.author.social %}
+		<a class="social-button {{ sn[0] }} light"
+		   rel="external"
+		   target="_blank"
+		   href="{{ sn[1].url }}"
+		   title="{{ sn[1].title }}">{{ sn[1].name }}</a>
+	{%- endfor %}
+	<a class="social-button liam light"
+	   href="{{ site.data.author.email }}"
+	   title="Send me an email"></a>
+	<a class="social-button feed light"
+	   href="{{ site.baseurl }}{{ site.feed.path }}"
+	   title="Subscribe to my Feed"></a>
+</div>

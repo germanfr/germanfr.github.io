@@ -1,0 +1,24 @@
+.btn {
+	.fa, .far, .fas {
+		&:first-child:not(:last-child) {
+			margin-left: 0;
+			margin-right: .5em;
+		}
+		&:last-child:not(:first-child) {
+			margin-left: .5em;
+			margin-right: 0;
+		}
+	}
+}
+
+
+@each $color, $value in $theme-colors {
+	.btn.btn-#{$color} {
+		background: rgba($value, .25);
+		color: $light;
+
+		&:hover {
+			background: rgba($value, .35);
+		}
+	}
+}

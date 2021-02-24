@@ -1,0 +1,26 @@
+html {
+	scroll-behavior: smooth;
+}
+
+* {
+	/* Firefox only (for now) */
+	scrollbar-width: thin;
+	/* scrollbar-color: rgba(100,100,100,.75) rgba(127,127,127,.25); */
+}
+
+/* SCROLLBARS */
+::-webkit-scrollbar { /* width */
+	width: $scrollbars-width;
+	height: $scrollbars-width;
+}
+::-webkit-scrollbar-track { /* Track */
+	background: $body-bg;
+}
+::-webkit-scrollbar-thumb { /* Handle */
+	background: $gray-700;
+	min-height: $scrollbars-width * 4;
+	// border-radius: 3px; // no no
+}
+::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+	background: $gray-600;
+}

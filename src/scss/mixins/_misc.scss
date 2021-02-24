@@ -1,0 +1,17 @@
+%noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	cursor: default;
+}
+
+@function readable-text-color($color, $dark: map-get($palette, 'dark'), $light: map-get($palette, 'light')) {
+	@if (lightness($color) > 50) {
+		@return $dark;
+	} @else {
+		@return $light;
+	}
+}

@@ -3,5 +3,6 @@ node_modules/
 .jekyll-metadata
 .jekyll-cache
 .sass-cache/
-_site/
 *.css.map
+
+node_modules_*

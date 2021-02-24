@@ -1,0 +1,15 @@
+body: #e8a6c2
+text: #560000
+titles: #941010
+	1px 1px #ca3f92
+
+header: #5c95ff
+	4px 4px #ffff00
+
+
+cards: bg #fff25c
+	shadow/secondary 8px 8px rgb(255, 152, 89)
+	text #b13f3f
+
+footer: #b15d5d
+	sub #b13f3f

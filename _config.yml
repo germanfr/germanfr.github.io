@@ -3,39 +3,58 @@ author: &var_author 'Germán Franco'
 title: *var_author
 description: 'My personal webpage and blog'
 url: https://germanfr.github.io
+repository: https://github.com/germanfr/germanfr.github.io/
 
-# Posts related stuff
-paginate: 6
-paginate_path: /blog/:num/
-permalink: /blog/:year/:month/:title
-
-feed:
- path: /blog/feed.xml
- type: 'Atom'
-
-defaults:
- -
-    scope:
-      path: ''
-      type: 'posts'
-    values:
-      layout: 'blog_post'
-      starred: false
-      author: *var_author
+# # Posts related stuff
+# paginate: 6
+# paginate_path: /blog/:num/
+# permalink: /blog/:year/:month/:title
+#
+# feed:
+#  path: /blog/feed.xml
+#  type: 'Atom'
+#
+# defaults:
+#  -
+#     scope:
+#       path: ''
+#       type: 'posts'
+#     values:
+#       layout: 'blog_post'
+#       starred: false
+#       author: *var_author
 
 
 # Compiler settings
 #exclude: [sass/, assets/raw/, local/, node_modules/, Gruntfile.js, package.json]
 timezone: Europe/Madrid
-exclude:
- - src
- - lib
- - local
- - node_modules
- - Gruntfile.js
- - package.json
- - README.md
- - .sass_cache
+# Build settings
+livereload: true    # You no longer need to include --livereload
 
-plugins:
- - jekyll-paginate
+source: src/site/
+keep_files:
+ - assets/js
+ - assets/css
+ - assets/fonts
+
+# exclude:
+#  - src
+#  - lib
+#  - local
+#  - node_modules
+#  - Gruntfile.js
+#  - package.json
+#  - README.md
+#  - .sass_cache
+
+# plugins:
+#  - jekyll-paginate
+
+
+
+# Custom settings
+
+# Absolute paths relative to the jekyll source directory
+favicon16: /favicon.png
+favicon32: /favicon-32.png
+og_image: /assets/img/profile.png

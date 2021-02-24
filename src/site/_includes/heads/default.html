@@ -1,0 +1,38 @@
+<meta charset="utf-8"/>
+{%- capture page_title %}{% include functions/page_title.html %}{% endcapture %}
+{%- assign page_title = page_title | strip_newlines | strip_html %}
+<title>{{ page_title }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Main CSS and JS files -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/main.css" />
+<script src="{{ site.baseurl }}/assets/js/index.js" charset="utf-8" async></script>
+
+<!-- Layout or view's specific CSS -->
+{%- if layout.stylesheet %}
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/{{ layout.stylesheet }}.css"/>
+{%- endif %}
+{%- if page.stylesheet -%}
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/{{ page.stylesheet }}.css"/>
+{%- endif %}
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="{{ site.baseurl }}{{ site.favicon16 | default: '/favicon.ico' }}" sizes="16x16">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}{{ site.favicon32 | default: '/favicon.ico' }}" sizes="32x32">
+
+<!-- External libs -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap-grid.min.css" integrity="sha512-cKoGpmS4czjv58PNt1YTHxg0wUDlctZyp9KUxQpdbAft+XqnyKvDvcGX0QYCgCohQenOuyGSl8l1f7/+axAqyg==" crossorigin="anonymous" />
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2&family=Rubik&display=swap" rel="stylesheet">
+
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" href="{{ site.url }}{{ site.baseurl }}/blog/feed.xml" title="{{ site.title }}">
+
+<meta name="og:title" property="og:title" content="{{ page_title }}">
+<meta name="og:url" property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+<meta name="og:description" property="og:description" content="{{ site.description }}">
+<meta name="og:image" property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ site.og_image }}">
+
+<noscript><link href="{{ site.baseurl }}/assets/css/noscript.css"rel="stylesheet" type="text/css"/></noscript>

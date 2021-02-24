@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% if page.html_head != null %}
+		{% include heads/{{page.html_head}}.html %}
+	{% elsif layout.html_head != null %}
+		{% include heads/{{layout.html_head}}.html %}
+	{% else %}
+		{% include heads/default.html %}
+	{% endif %}
+</head>
+
+<body>
+	{% if page.header != null %}
+		{% include headers/{{page.header}}.html %}
+	{% elsif layout.header != null %}
+		{% include headers/{{layout.header}}.html %}
+	{% else %}
+		{% include headers/default.html %}
+	{% endif %}
+
+	<div class="content">
+		{{ content }}
+	</div>
+
+	{% include footer.html %}
+</body>
+</html>

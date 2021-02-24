@@ -1,0 +1,29 @@
+{%- if page.url == "/" or page.url == "/index.html" -%}
+	{%- assign is_index_page = true %}
+{%- else %}
+	{%- assign is_index_page = false %}
+{%- endif %}
+<nav class="navbar navbar-expand navbar-light {% if include.classname %}{{ include.classname }}{% endif %}">
+	<div class="collapse navbar-collapse">
+		<ul class="navbar-nav ml-auto">
+			{%- for entry in include.entries -%}
+				{%- assign url = entry.url %}
+				{%- assign url_first_char = url | slice: 0 %}
+				{%- unless is_index_page and url_first_char == '#' -%}
+					{% if url_first_char != '/' %}
+						{% assign url = url | prepend: '/' %}
+					{% endif %}
+					{% assign url = url | prepend: site.baseurl %}
+				{%- endunless %}
+				{%- if url == page.url %}
+					{%- assign is_active = true %}
+				{%- else %}
+					{%- assign is_active = false %}
+				{%- endif %}
+				<li class="nav-item">
+					<a class="nav-link {% if is_active %}active {{ page.url != 'xxxx' }}{% endif %}" href="{{ url }}">{{ entry.name }}</a>
+				</li>
+			{%- endfor %}
+		</ul>
+	</div>
+</nav>

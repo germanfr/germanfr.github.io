@@ -1,0 +1,20 @@
+<header class="page-header" id="header">
+	{% include nav/main_nav_menu.html -%}
+
+	<div class="profile-section">
+		<img class="profile-picture"
+			src="{{site.data.author.social.github.url}}.png"
+			alt="Profile photo of {{ site.data.author.name}}"
+			height="192" width="192"
+		/>
+		<h1 class="author-name">
+			{%- assign words = site.data.author.name | split: " " %}
+			{%- for word in words %}
+				<span class="word">{{ word }}</span>
+			{%- endfor %}
+		</h1>
+	</div>
+
+	{%- include widgets/social_buttons.html %}
+
+</header>

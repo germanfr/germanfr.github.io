@@ -4,9 +4,10 @@
 # Don't want these in diffs
 **/*.min.css binary
 **/*.min.js binary
-_site/* binary
+_site/** binary
+package-lock.json binary
 
 # Ignore generated files from languages used statistic
-dist/* linguist-vendored
+dist/** linguist-vendored
 src/css/* linguist-vendored
-_site/* linguist-vendored
+_site/** linguist-vendored

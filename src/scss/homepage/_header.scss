@@ -1,0 +1,91 @@
+.page-header {
+	margin-bottom: map-get($spacers, 5);
+
+	@include media-breakpoint-up(md) {
+		.navbar {
+			margin: 0 map-get($spacers, 2);
+		}
+	}
+
+	.profile-section {
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		padding: map-get($spacers, 4) 0;
+		margin-bottom: map-get($spacers, 5);
+		max-width: 100%;
+	}
+
+	.profile-picture {
+		@keyframes profile-picture-animation {
+			0%, 100% {
+				border-radius: 67% 33% 79% 21% / 49% 51% 49% 51% ;
+			}
+			33% {
+				border-radius: 42% 58% 55% 45% / 30% 66% 34% 70% ;
+			}
+			66% {
+				border-radius: 38% 62% 76% 24% / 33% 56% 44% 67% ;
+			}
+		}
+
+		animation: infinite linear 14s profile-picture-animation;
+		transform: rotateY(180deg);
+
+		@include media-breakpoint-down(sm) {
+			width: 128px;
+			height: 128px;
+			transform: translateX(.25em) rotateY(180deg);
+		}
+	}
+
+	.author-name {
+		transform: translate(-.5em, .25em);
+		line-height: 1;
+		margin: 0;
+
+		text-transform: uppercase;
+		font-family: $font-family-alt;
+		font-size: 5 * $font-size-base;
+		font-weight: bold;
+		@include media-breakpoint-down(sm) {
+			font-size: 10vw;
+			font-size: 2.5 * $font-size-base;
+		}
+
+		// Break every word into lines
+		// width: min-intrinsic;
+		// width: -moz-min-content;
+		// width: min-content;
+
+
+		// mix-blend-mode: color-burn; // Does not look good on Firefox
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		text-fill-color: transparent;
+
+		background-image: linear-gradient(90deg, #34373a 0%, #00ffa3 100%);
+		text-shadow: 4px 4px rgba(red, .28), -4px -4px rgba(blue, .28);
+		// outline: 1px dashed tomato;
+
+		.header-title-underline {
+			user-select: none;
+		}
+
+
+		.word {
+			display: block;
+			&:nth-child(2n-1)::after {
+				content: '___';
+			}
+			&:nth-child(2n)::before {
+				content: '____';
+			}
+		}
+	}
+
+	.header-quote {
+		color: theme-color(secondary);
+	}
+}

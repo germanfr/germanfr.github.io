@@ -1,0 +1,27 @@
+<footer class="page-footer">
+	<div class="upper-footer-section">
+		<h6 class="social-title">Find me on</h6>
+		{%- include widgets/social_buttons.html %}
+		<div>
+			{% include nav/main_nav_menu.html classname="link-list horizontal"%}
+			<!--<ul class="link-list horizontal">
+				<li><a>About this site</a></li><li>
+				<a>Behind the scenes</a></li>
+			</ul>-->
+		</div>
+	</div>
+	<div class="bottom-footer-section">
+		<div>
+			<!-- <i>Last updated: {% include functions/site_date.html %}</i> -->
+		</div>
+		<div>
+			<a href="#header" class="btn rounded-circle btn-danger btn-light" title="Back to top">
+				<i class="fas fa-chevron-up fa-size-lg"></i>
+			</a>
+		</div>
+		<div>
+			Site hosted by
+			<a href="{{ site.repository | default: 'https://github.com/' }}" target="_blank" title="Go to GitHub" rel="external nofollow">GitHub</a>&nbsp;pages
+		</div>
+	</div>
+</footer>

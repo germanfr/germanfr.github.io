@@ -1,0 +1,19 @@
+{% if jekyll.environment == "development" %}
+	<div style="position: fixed; bottom: 0; opacity: .8; pointer-events: none; font-size: 10px;">
+		<div class="px-1 d-block d-sm-none" style="background: hotpink">
+			XS
+		</div>
+		<div class="px-1 d-none d-sm-block d-md-none" style="background: blue">
+			SM
+		</div>
+		<div class="px-1 d-none d-md-block d-lg-none" style="background: seagreen">
+			MD
+		</div>
+		<div class="px-1 d-none d-lg-block d-xl-none" style="background: orange">
+			LG
+		</div>
+		<div class="px-1 d-none d-xl-block" style="background: red">
+			XL
+		</div>
+	</div>
+{% endif %}

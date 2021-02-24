@@ -1,0 +1,64 @@
+projects-container {
+	$spacing: map-get($spacers, 4);
+	$column-width: 19rem;
+
+	justify-content: center;
+	display: grid;
+	// grid-template-columns: repeat(auto-fill, unquote('min(#{$column-width}, 100%)'));
+	grid-template-columns: repeat(auto-fill, minmax(unquote('min(#{$column-width}, 100%)'), 1fr));
+	grid-gap: $spacing;
+
+	> .card {
+		margin: 0;
+
+		.card-body {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+	}
+
+	.project-stats {
+		color: $text-muted;
+		white-space: nowrap;
+		font-size: $font-size-sm;
+		padding-left: map-get($spacers, 1);
+		user-select: none;
+
+		* {
+			margin-left: map-get($spacers, 1);
+		}
+	}
+
+	.project-metadata {
+		margin: ($card-spacer-y) 0 0;
+		color: theme-color(secondary);
+		font-family: $font-family-monospace;
+		font-size: $font-size-sm;
+		font-weight: 600;
+
+		> *:not(:last-child) {
+			margin-right: map-get($spacers, 3);
+		}
+	}
+
+	.footer-link {
+		color: inherit;
+		font-weight: bold;
+		font-family: $font-family-monospace;
+		font-size: $font-size-sm;
+		white-space: nowrap;
+
+		&:not(:last-child) {
+			margin-right: map-get($spacers, 3);
+		}
+
+		i {
+			margin-right: map-get($spacers, 2);
+		}
+	}
+
+	.project-language {
+		white-space: nowrap;
+	}
+}

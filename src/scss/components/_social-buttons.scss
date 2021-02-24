@@ -1,0 +1,50 @@
+.social-buttons-container {
+	pointer-events: auto;
+	display: flex;
+	justify-content: center;
+}
+
+.social-button {
+	$size: $font-size-base * 2;
+	height: $size;
+	width: $size;
+	margin: map-get($spacers, 1);
+	display: inline-block;
+	border-radius: 50%;
+	font-size: 0;
+
+	@mixin social-button-bg($size: 32px, $theme: 0) {
+		// Add in the same order as in social.svg
+		background-image: url('../social.svg');
+		$social-networks: (github, twitter, linkedin, liam, feed, telegram, reddit, dribbble);
+		$count: 0;
+		$y_base: -$size * $theme;
+		@each $network in $social-networks {
+			&.#{$network} {
+				background-position: -($count * $size) $y_base;
+				background-size: auto 200%;
+			}
+			$count: $count + 1;
+		}
+
+		// Same icon with two name correspondences requires extra handling
+		&.mail {
+			$mail-index: index($social-networks, liam) - 1; // index starts on 1
+			background-position: -($mail-index * $size) $y_base;
+		}
+	}
+
+
+	@include social-button-bg($size, 1);
+	&.dark {
+		@include social-button-bg($size, 0);
+	}
+
+	box-shadow: 0 0 0 0 rgba(#fff, 0);
+	transition: .4s box-shadow;
+
+	&:focus, &:hover {
+		outline: none;
+		box-shadow: 0 0 0 #{$size/16} rgba(#fff, 0.5);
+	}
+}

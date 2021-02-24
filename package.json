@@ -1,26 +1,44 @@
 {
-  "name": "german-franco",
-  "version": "0.0.1",
-  "description": "Project short description",
+  "name": "germanfr.github.io",
+  "author": "Germán Franco",
+  "homepage": "https://germanfr.github.io",
+  "version": "2.0.0",
+  "description": "My website",
+  "private": true,
   "license": "GPL-3.0",
+  "scripts": {
+    "start": "gulp watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/germanfr/germanfr.github.io.git"
+    "url": "git+https://github.com/germanfr/germanfr.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/germanfr/germanfr.github.io/issues"
   },
   "devDependencies": {
-    "autoprefixer": "latest",
-    "grunt": "^1.0.0",
-    "grunt-browserify": "^5.0.0",
-    "grunt-concurrent": "^2.3.1",
-    "grunt-contrib-cssmin": "latest",
-    "grunt-contrib-sass": "latest",
-    "grunt-contrib-uglify": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-jekyll": "^0.4.6",
-    "grunt-postcss": "latest"
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babelify": "^10.0.0",
+    "bootstrap": "^4.5.3",
+    "browserify": "^16.5.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "merge-stream": "^2.0.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-named": "^1.1.0",
+    "vinyl-source-stream": "^2.0.0",
+    "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "petri-nodes": "git+https://github.com/germanfr/petri-nodes.git",
-    "smoothscroll": "^0.2.2"
+    "@babel/plugin-proposal-private-methods": "^7.12.13",
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "gulp-babel-minify": "^0.5.1",
+    "petri-nodes": "github:germanfr/petri-nodes"
   }
 }
