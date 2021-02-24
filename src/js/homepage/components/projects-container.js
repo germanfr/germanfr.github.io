@@ -24,7 +24,6 @@ export class ProjectCardsContainer extends HTMLElement {
 		this.textContent = 'Loading...';
 
 		this.profile.ownRepos().then(repos => {
-			console.log(repos);
 			let cards = document.createDocumentFragment();
 			for (let repo of repos) {
 				let card = document.createElement('project-card');

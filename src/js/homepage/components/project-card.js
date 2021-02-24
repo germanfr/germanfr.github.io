@@ -48,7 +48,6 @@ export class ProjectCard extends HTMLElement {
 	}
 
 	#renderCardBody(project) {
-		// console.log(project);
 		let body = document.createElement('div');
 		body.className = 'card-body';
 

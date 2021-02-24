@@ -41,7 +41,6 @@ export class GithubProfile {
 			let page2 = await this.#fetchReposPage(2);
 			repos = [ ...repos, ...page2 ];
 		}
-		console.log('repos', repos);
 		return repos;
 	}
 
@@ -54,14 +53,13 @@ export class GithubProfile {
 					'Accept': API.mediaType,
 				},
 			});
-			console.log(response);
 			if (response.ok) {
 				json = await response.json();
 			} else {
 				console.error("Failed to fetch", response);
 			}
 		} catch (e) {
-			console.log(e)
+			console.error(e)
 		}
 		return json;
 	}
