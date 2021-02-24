@@ -17,8 +17,8 @@
 {%- endif %}
 
 <!-- Favicon -->
-<link rel="icon" type="image/png" href="{{ site.baseurl }}{{ site.favicon16 | default: '/favicon.ico' }}" sizes="16x16">
-<link rel="icon" type="image/png" href="{{ site.baseurl }}{{ site.favicon32 | default: '/favicon.ico' }}" sizes="32x32">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}{{ site.data.site.favicon16 | default: '/favicon.ico' }}" sizes="16x16">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}{{ site.data.site.favicon32 | default: '/favicon.ico' }}" sizes="32x32">
 
 <!-- External libs -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
@@ -28,11 +28,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Exo+2&family=Rubik&display=swap" rel="stylesheet">
 
 <!-- RSS -->
-<link rel="alternate" type="application/rss+xml" href="{{ site.url }}{{ site.baseurl }}/blog/feed.xml" title="{{ site.title }}">
+<link rel="alternate" type="application/rss+xml" href="{{ site.url }}{{ site.baseurl }}/blog/feed.xml" title="{{ site.data.site.title }}">
 
 <meta name="og:title" property="og:title" content="{{ page_title }}">
 <meta name="og:url" property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
-<meta name="og:description" property="og:description" content="{{ site.description }}">
-<meta name="og:image" property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ site.og_image }}">
+<meta name="og:description" property="og:description" content="{{ site.data.site.description }}">
+<meta name="og:image" property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ site.data.site.og_image }}">
 
 <noscript><link href="{{ site.baseurl }}/assets/css/noscript.css"rel="stylesheet" type="text/css"/></noscript>

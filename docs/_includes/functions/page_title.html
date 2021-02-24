@@ -1,1 +1,5 @@
-{% if page.title != null %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}
+{%- if page.title != null -%}
+	{{ page.title | escape }} - {{ site.data.site.title | escape }}
+{%- else -%}
+	{{ site.data.site.title | escape }}
+{%- endif %}

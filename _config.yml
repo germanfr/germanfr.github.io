@@ -3,7 +3,6 @@ author: &var_author 'Germán Franco'
 title: *var_author
 description: 'My personal webpage and blog'
 url: https://germanfr.github.io
-repository: https://github.com/germanfr/germanfr.github.io/
 
 # # Posts related stuff
 # paginate: 6
@@ -23,7 +22,6 @@ repository: https://github.com/germanfr/germanfr.github.io/
 #       layout: 'blog_post'
 #       starred: false
 #       author: *var_author
-
 
 # Compiler settings
 #exclude: [sass/, assets/raw/, local/, node_modules/, Gruntfile.js, package.json]
@@ -49,12 +47,3 @@ source: docs/
 
 # plugins:
 #  - jekyll-paginate
-
-
-
-# Custom settings
-
-# Absolute paths relative to the jekyll source directory
-favicon16: /favicon.png
-favicon32: /favicon-32.png
-og_image: /assets/img/profile.png

@@ -1,0 +1,12 @@
+# Site settings
+
+author: &var_author 'Germán Franco'
+title: *var_author
+description: 'My personal webpage and blog'
+repository: https://github.com/germanfr/germanfr.github.io/
+
+
+# Absolute paths relative to the jekyll source directory
+favicon16: /favicon.png
+favicon32: /favicon-32.png
+og_image: /assets/img/profile.png
