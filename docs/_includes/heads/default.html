@@ -27,12 +27,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2&family=Rubik&display=swap" rel="stylesheet">
 
-<!-- RSS -->
-<link rel="alternate" type="application/rss+xml" href="{{ site.url }}{{ site.baseurl }}/blog/feed.xml" title="{{ site.data.site.title }}">
+<!-- RSS feed -->
+{%- if site.feed.path != null %}
+	<link rel="alternate" type="application/rss+xml" href="{{ site.url }}{{ site.baseurl }}{{ site.feed.path }}" title="{{ site.data.site.title }}">
+{%- endif %}
+
+<!-- Meta tags -->
+<meta name="description" content="{{ site.data.site.description }}">
 
 <meta name="og:title" property="og:title" content="{{ page_title }}">
 <meta name="og:url" property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
 <meta name="og:description" property="og:description" content="{{ site.data.site.description }}">
 <meta name="og:image" property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ site.data.site.og_image }}">
 
-<noscript><link href="{{ site.baseurl }}/assets/css/noscript.css"rel="stylesheet" type="text/css"/></noscript>
+<noscript><link href="{{ site.baseurl }}/assets/css/noscript.css" rel="stylesheet" type="text/css"/></noscript>
