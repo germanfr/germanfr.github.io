@@ -20,8 +20,12 @@
 			</a>
 		</div>
 		<div>
-			Site hosted by
-			<a href="{{ site.data.site.repository | default: 'https://github.com/' }}" target="_blank" title="Go to GitHub" rel="external noopener">GitHub</a>&nbsp;pages
+			{%- if site.data.site.repository != null %}
+				Get
+				<a href="{{ site.data.site.repository }}" target="_blank" title="Go to GitHub" rel="external noopener">
+					the source
+				</a> of this site
+			{%- endif %}
 		</div>
 	</div>
 </footer>
