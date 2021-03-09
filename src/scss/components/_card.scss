@@ -29,4 +29,8 @@
 		// border-top: $card-border-width solid $card-border-color;
 		// border-radius: 0 0 $card-inner-border-radius $card-inner-border-radius;
 	}
+
+	.text-secondary {
+		color: $card-secondary-color !important;
+	}
 }

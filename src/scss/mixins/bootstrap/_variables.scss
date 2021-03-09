@@ -12,7 +12,7 @@ $gray-200: #ececec;
 $gray-300: #e0e0e0;
 $gray-400: #d0d0d0;
 $gray-500: #b0b0b0;
-$gray-600: #707070;
+$gray-600: #7f7f7f;
 $gray-700: #505050;
 $gray-800: #343434;
 $gray-900: #212121;
@@ -67,7 +67,7 @@ $colors: map-merge(
 );
 
 $primary:       #70E7E8;
-$secondary:     $gray-700 !default;
+$secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -840,6 +840,7 @@ $card-border-width:                 0px;
 // $card-cap-color:                    null !default;
 // $card-height:                       null !default;
 $card-color:                        $black;
+$card-secondary-color:         $gray-700;
 // $card-bg:                           $white !default;
 $card-box-shadow:                      $box-shadow-lg;
 
