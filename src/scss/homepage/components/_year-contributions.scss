@@ -1,0 +1,55 @@
+year-contributions {
+	header {
+		align-items: center;
+		margin-bottom: $card-spacer-y;
+
+		> * {
+			margin: 0;
+		}
+	}
+
+	.fancy-header-line {
+		border-top: 1px dashed currentColor;
+		opacity: .25;
+		flex-grow: 1;
+		margin: 0 map-get($spacers, 3);
+	}
+
+	.repo-count {
+		font-variant-numeric: tabular-nums;
+	}
+
+	.repos-list {
+		margin-bottom: map-get($spacers, 5);
+	}
+
+	.repo-link {
+		display: block;
+		color: inherit;
+		border-radius: $border-radius;
+		padding: map-get($spacers, 2);
+		margin: 0 (- map-get($spacers, 2));
+
+		font-family: $font-family-monospace;
+		font-size: $font-size-sm;
+		font-weight: bold;
+
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow-x: hidden;
+
+		&:hover {
+			background-color: rgba($gray-600, .25);
+		}
+
+
+		// The icon
+		> img {
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			margin-right: map-get($spacers, 2);
+		}
+
+	}
+}

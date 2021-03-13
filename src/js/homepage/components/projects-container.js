@@ -1,6 +1,6 @@
 import './project-card';
 
-import { GithubProfile } from '../../modules/github';
+import { ProfileManager } from '../../modules/github';
 import { emptyElement } from '../../utils/domUtils';
 
 export class ProjectCardsContainer extends HTMLElement {
@@ -14,7 +14,7 @@ export class ProjectCardsContainer extends HTMLElement {
 	attributeChangedCallback(attrName, oldVal, newVal) {
 		if (attrName === 'username') {
 			if (oldVal !== newVal) {
-				this.profile = new GithubProfile(newVal);
+				this.profile = ProfileManager.get(newVal);
 				this.render();
 			}
 		}
@@ -24,6 +24,11 @@ export class ProjectCardsContainer extends HTMLElement {
 		this.textContent = 'Loading...';
 
 		this.profile.ownRepos().then(repos => {
+			if (!repos || repos.length === 0) {
+				this.textContent = "There are no repositories.";
+				return;
+			}
+
 			let cards = document.createDocumentFragment();
 			for (let repo of repos) {
 				let card = document.createElement('project-card');

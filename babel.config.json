@@ -1,6 +1,8 @@
 {
 	"plugins": [
-		["@babel/plugin-proposal-private-methods", { "loose": true }]
+		["@babel/plugin-proposal-private-methods", { "loose": true }],
+		["@babel/plugin-proposal-class-properties", { "loose": true }],
+		["inline-dotenv", { "path": ".env", "unsafe": true }]
 	],
 	"presets": [
 		[
@@ -8,8 +10,8 @@
 			{
 				"targets": {
 					"esmodules": true,
-				},
-			},
+				}
+			}
 		]
 	]
 }
