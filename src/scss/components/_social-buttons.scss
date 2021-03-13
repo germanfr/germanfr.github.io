@@ -5,6 +5,8 @@
 }
 
 .social-button {
+	$social-networks: (github, twitter, linkedin, liam, feed, telegram, reddit, dribbble);
+
 	$size: $font-size-base * 2;
 	height: $size;
 	width: $size;
@@ -16,7 +18,7 @@
 	@mixin social-button-bg($size: 32px, $theme: 0) {
 		// Add in the same order as in social.svg
 		background-image: url('/assets/social.svg');
-		$social-networks: (github, twitter, linkedin, liam, feed, telegram, reddit, dribbble);
+
 		$count: 0;
 		$y_base: -$size * $theme;
 		@each $network in $social-networks {
@@ -46,5 +48,27 @@
 	&:focus, &:hover {
 		outline: none;
 		box-shadow: 0 0 0 #{$size/16} rgba(#fff, 0.5);
+	}
+
+
+
+
+	.page-header & {
+		transform: scale(0);
+
+		$transition-duration: .2s;
+		animation: social-buttons-show $transition-duration forwards;
+
+		@for $i from 1 through length($social-networks) {
+			&:nth-child(#{$i}) {
+				animation-delay: $i * $transition-duration / 2;
+			}
+		}
+	}
+}
+
+@keyframes social-buttons-show {
+	to {
+		transform: scale(1);
 	}
 }
