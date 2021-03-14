@@ -5,6 +5,11 @@ const API = {
 	mediaType: 'application/json',
 };
 
+const GITHUB_API = {
+	url: 'https://api.github.com',
+	mediaType: 'application/vnd.github.v3+json'
+}
+
 
 const STORAGE_KEYS = {
 	repos: 'github-repos-cache',
@@ -21,16 +26,23 @@ export class GithubProfile {
 
 	repos() {
 		return this.cache.get(STORAGE_KEYS.repos, {
-			fetch: this.#fetchRepos.bind(this, trye),
+			fetch: this.#fetchRepos.bind(this),
 			isValid: repos => repos && repos.length > 0,
 		});
 	}
 
-	ownRepos() {
-		return this.cache.get(STORAGE_KEYS.ownRepos, {
-			fetch: this.#fetchRepos.bind(this, false),
-			isValid: repos => repos && repos.length > 0,
-		});
+	async ownRepos() {
+		// return this.repos();
+		const githubPagesUrl = this.username + '.github.io';
+		let repos = await this.repos();
+		let filtered = [];
+		for (let repo of repos) {
+			// Return only relevat repositories
+			if ((repo.stargazers_count || !repo.fork) && repo.name !== githubPagesUrl && !repo.archived) {
+				filtered.push(repo);
+			}
+		}
+		return filtered.sort(GithubProfile.#compareRepos);
 	}
 
 	contributions() {
@@ -47,9 +59,61 @@ export class GithubProfile {
 		});
 	}
 
-	#fetchRepos(all=false) {
-		const url = all ? `${API.url}/repos/all` : `${API.url}/repos`;
-		return this.#apiFetch(url);
+	async #fetchRepos() {
+		let repos = await this.#fetchReposPage(1);
+		if (repos && repos.length === 100) {
+			let page2 = await this.#fetchReposPage(2);
+			repos = [ ...repos, ...page2 ];
+		}
+		return repos;
+	}
+
+	async #fetchReposPage(page = 1) {
+		const url = `${GITHUB_API.url}/users/${this.username}/repos?sort=updated&per_page=100&page=${parseInt(page)}`;
+		let json = [];
+		try {
+			let response = await fetch(url, {
+				headers: {
+					'Accept': GITHUB_API.mediaType,
+				},
+			});
+			if (response.ok) {
+				json = await response.json();
+			} else {
+				console.error("Failed to fetch", response);
+			}
+		} catch (e) {
+			console.error(e)
+		}
+		return json;
+	}
+
+	static #compareRepos(a, b) {
+		if (b.stargazers_count > a.stargazers_count) {
+			return 1;
+		} else if (b.stargazers_count < a.stargazers_count) {
+			return -1;
+		}
+
+		if (b.forks_count > a.forks_count) {
+			return 1;
+		} else if (b.forks_count < a.forks_count) {
+			return -1;
+		}
+
+		if (b.watchers_count > a.watchers_count) {
+			return 1
+		} else if (b.watchers_count < a.watchers_count) {
+			return -1;
+		}
+
+		if (b.updated_at > a.updated_at) {
+			return 1;
+		} else if (b.updated_at < a.updated_at) {
+			return -1;
+		}
+
+		return 0;
 	}
 
 	#fetchContributions() {
