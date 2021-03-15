@@ -18,6 +18,10 @@ const STORAGE_KEYS = {
 	yearContributions: year => `github-contributions-${year}-cache`,
 };
 
+const REPOS_BLACKLIST = [
+	'gh-pages-backend', // The backend of this same website
+];
+
 export class GithubProfile {
 	constructor(username) {
 		this.username = username;
@@ -36,11 +40,17 @@ export class GithubProfile {
 		const githubPagesUrl = this.username + '.github.io';
 		let repos = await this.repos();
 		let filtered = [];
+
 		for (let repo of repos) {
+			if (repo.fork && repo.stargazers_count === 0)
+				continue;
+			if (repo.name === githubPagesUrl || REPOS_BLACKLIST.includes(repo.name))
+				continue;
+			if (repo.archived)
+				continue;
+
 			// Return only relevat repositories
-			if ((repo.stargazers_count || !repo.fork) && repo.name !== githubPagesUrl && !repo.archived) {
-				filtered.push(repo);
-			}
+			filtered.push(repo);
 		}
 		return filtered.sort(GithubProfile.#compareRepos);
 	}
