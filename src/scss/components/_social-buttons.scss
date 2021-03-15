@@ -54,21 +54,28 @@
 
 
 	.page-header & {
+		will-change: opacity, transform;
 		transform: scale(0);
+		opacity: 0;
 
-		$transition-duration: .2s;
+		$transition-duration: .45s;
 		animation: social-buttons-show $transition-duration forwards;
 
 		@for $i from 1 through length($social-networks) {
 			&:nth-child(#{$i}) {
-				animation-delay: $i * $transition-duration / 2;
+				animation-delay: $i * $transition-duration / 4;
 			}
 		}
 	}
 }
 
 @keyframes social-buttons-show {
-	to {
+	50% {
+		transform: scale(1.25);
+		opacity: .9;
+	}
+	100% {
 		transform: scale(1);
+		opacity: 1;
 	}
 }
