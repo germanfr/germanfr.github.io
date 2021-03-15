@@ -1,0 +1,35 @@
+x-skeleton, .skeleton {
+	background: rgba($gray-600, .5);
+	border: none;
+	outline: none;
+
+	height: auto;
+	width: fit-content;
+	min-width: 1rem;
+	min-height: .65rem;
+
+
+	animation: 2s skeleton-pulse-animation infinite;
+	> * {
+		visibility: hidden;
+	}
+}
+
+x-skeleton[variant=circle], .skeleton-circle {
+	border-radius: 50%;
+}
+
+x-skeleton[variant=text], .skeleton-text {
+	border-radius: $border-radius-sm;
+}
+
+
+@keyframes skeleton-pulse-animation {
+	0%, 100% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: .8;
+	}
+}

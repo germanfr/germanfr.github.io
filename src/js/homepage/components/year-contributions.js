@@ -1,7 +1,7 @@
 import './project-card';
 
 import { ProfileManager } from '../../modules/github';
-import { emptyElement } from '../../utils/domUtils';
+import { emptyElement, createElement } from '../../utils/domUtils';
 
 export class YearContributions extends HTMLElement {
 	static get observedAttributes() {
@@ -32,8 +32,7 @@ export class YearContributions extends HTMLElement {
 	}
 
 	render() {
-		this.appendChild(this.#renderHeader());
-		this.appendChild(document.createTextNode("Loading..."));
+		this.#renderSkeleton();
 
 		this.profile.yearContributions(this._year).then(contributions => {
 			emptyElement(this);
@@ -50,17 +49,7 @@ export class YearContributions extends HTMLElement {
 			let reposContainer = document.createElement('div');
 			reposContainer.className = 'repos-list';
 			for (let repo of contributions.repositories) {
-				let elem = document.createElement('a');
-				elem.className = 'repo-link';
-				elem.href = repo.url;
-				elem.rel = 'external noopener';
-				{
-					let avatar = document.createElement('img');
-					avatar.src = repo.avatarUrl+'&s=48';
-					elem.appendChild(avatar);
-				}
-				elem.appendChild(document.createTextNode(repo.fullName));
-				reposContainer.appendChild(elem);
+				reposContainer.appendChild(this.#renderRepoRow(repo));
 			}
 			this.appendChild(reposContainer);
 
@@ -68,6 +57,19 @@ export class YearContributions extends HTMLElement {
 			this.#renderError(err);
 			console.error(err);
 		});
+	}
+
+	#renderSkeleton() {
+		this.appendChild(this.#renderHeader());
+
+		let reposContainer = document.createElement('div');
+		reposContainer.className = 'repos-list';
+
+		let reposNo = Math.min(2 << (this.#currentYear() - this._year), 8);
+		for (let i = reposNo; i >= 1; i--) {
+			reposContainer.appendChild(this.#renderRepoRowSkeleton());
+		}
+		this.appendChild(reposContainer);
 	}
 
 	#renderHeader(contributions) {
@@ -105,6 +107,30 @@ export class YearContributions extends HTMLElement {
 		return contribCountEl;
 	}
 
+	#renderRepoRow(repo) {
+		let elem = document.createElement('a');
+		elem.className = 'repo-link';
+		elem.href = repo.url;
+		elem.rel = 'external noopener';
+
+		let avatar = document.createElement('img');
+		avatar.className = 'avatar';
+		avatar.src = repo.avatarUrl+'&s=48';
+		elem.appendChild(avatar);
+
+		elem.appendChild(document.createTextNode(repo.fullName));
+		return elem;
+	}
+
+	#renderRepoRowSkeleton() {
+		let elem = document.createElement('div');
+		elem.className = 'repo-link disabled';
+
+		elem.appendChild(createElement('x-skeleton', { className: 'avatar' }));
+		elem.appendChild(createElement('x-skeleton', { variant: 'text', className: 'flex-grow-1' }));
+		return elem;
+	}
+
 	#renderError(err) {
 		emptyElement(this);
 		this.appendChild(this.#renderHeader());
@@ -112,6 +138,10 @@ export class YearContributions extends HTMLElement {
 		errorContainer.className = 'text-danger';
 		errorContainer.textContent = "Error :(";
 		this.appendChild(errorContainer);
+	}
+
+	#currentYear() {
+		return (new Date()).getFullYear();
 	}
 }
 

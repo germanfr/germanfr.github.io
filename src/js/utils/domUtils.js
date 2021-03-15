@@ -9,6 +9,19 @@ export function onDomLoaded(cb) {
 }
 
 
+export function createElement(name, props) {
+	let elem = document.createElement(name);
+	if (props.children) {
+		elem.appendChild(props.children);
+	}
+	for (let key in props) {
+		if (key === 'children') continue;
+		elem[key] = props[key];
+	}
+	return elem;
+}
+
+
 export function emptyElement(el) {
 	while (el.firstChild) el.removeChild(el.firstChild);
 }

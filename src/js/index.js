@@ -1,3 +1,5 @@
+import './components';
+
 import { onDomLoaded } from './utils/domUtils';
 import * as email from './modules/email';
 

@@ -24,7 +24,9 @@ year-contributions {
 	}
 
 	.repo-link {
-		display: block;
+		display: flex;
+		align-items: center;
+
 		color: inherit;
 		border-radius: $border-radius;
 		padding: map-get($spacers, 2);
@@ -38,13 +40,13 @@ year-contributions {
 		text-overflow: ellipsis;
 		overflow-x: hidden;
 
-		&:hover {
+		&:not(.disabled):hover {
 			background-color: rgba($gray-600, .25);
 		}
 
 
 		// The icon
-		> img {
+		.avatar {
 			width: 24px;
 			height: 24px;
 			border-radius: 50%;
