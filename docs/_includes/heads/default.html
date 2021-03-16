@@ -45,3 +45,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:description" content="{{ site.data.site.description }}">
 <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{ site.data.site.og_image }}">
+
+{%- if site.data.site.google_verification != null %}
+	<meta name="google-site-verification" content="{{ site.data.site.google_verification }}" />
+{%- endif %}
