@@ -7,7 +7,7 @@
 			alt="Profile photo of {{ site.data.author.name}}"
 			height="192" width="192"
 		/>
-		<h1 class="author-name">
+		<h1 class="author-name" rel="author">
 			{%- assign words = site.data.author.name | split: " " %}
 			{%- for word in words %}
 				<span class="word">{{ word }}</span>
