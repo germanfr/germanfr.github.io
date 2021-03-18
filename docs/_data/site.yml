@@ -2,7 +2,7 @@
 
 author: &var_author 'Germán Franco'
 title: *var_author
-description: 'My personal webpage and blog'
+description: 'Personal web page of Germán Franco'
 repository: https://github.com/germanfr/germanfr.github.io/
 
 

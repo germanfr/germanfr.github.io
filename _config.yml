@@ -1,7 +1,7 @@
 # Personal and site info
 author: &var_author 'Germán Franco'
 title: *var_author
-description: 'My personal webpage and blog'
+description: 'Personal web page of Germán Franco'
 url: https://germanfr.github.io
 
 # # Posts related stuff
