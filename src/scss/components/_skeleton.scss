@@ -1,17 +1,19 @@
 x-skeleton, .skeleton {
-	background: rgba($gray-600, .5);
+	background: rgba($gray-600, .4);
 	border: none;
 	outline: none;
 
 	height: auto;
 	width: fit-content;
-	min-width: 1rem;
-	min-height: .65rem;
-
+	display: block;
 
 	animation: 2s skeleton-pulse-animation infinite;
+
+	color: transparent;
+	user-select: none;
 	> * {
 		visibility: hidden;
+		opacity: 0;
 	}
 }
 
@@ -20,7 +22,10 @@ x-skeleton[variant=circle], .skeleton-circle {
 }
 
 x-skeleton[variant=text], .skeleton-text {
+	min-width: 1rem;
+	min-height: 1.75ex;
 	border-radius: $border-radius-sm;
+	display: inline-block;
 }
 
 
@@ -30,6 +35,6 @@ x-skeleton[variant=text], .skeleton-text {
 	}
 
 	50% {
-		opacity: .8;
+		opacity: .75;
 	}
 }

@@ -14,12 +14,17 @@ export class LanguageColor extends HTMLElement {
 	attributeChangedCallback(attrName, oldVal, newVal) {
 		if (attrName === 'language') {
 			if (oldVal !== newVal) {
-				this.render(newVal);
+				this.render();
 			}
 		}
 	}
 
-	render(language) {
+	connectedCallback() {
+		if (!this.style.background)
+			this.render();
+	}
+
+	render() {
 		this.style.background = this.#getColor();
 	}
 

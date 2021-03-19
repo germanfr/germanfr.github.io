@@ -13,9 +13,11 @@ export function createElement(name, props) {
 	let elem = document.createElement(name);
 	if (props.children) {
 		elem.appendChild(props.children);
+	} else if (props.text) {
+		elem.textContent = props.text;
 	}
 	for (let key in props) {
-		if (key === 'children') continue;
+		if (['children','text'].includes(key)) continue;
 		elem[key] = props[key];
 	}
 	return elem;

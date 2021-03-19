@@ -21,7 +21,12 @@ export class ProjectCardsContainer extends HTMLElement {
 	}
 
 	render() {
-		this.textContent = 'Loading...';
+		let cards = document.createDocumentFragment();
+		for (let i = 0; i < 12; i++) {
+			let card = document.createElement('project-card');
+			cards.appendChild(card);
+		}
+		this.appendChild(cards);
 
 		this.profile.ownRepos().then(repos => {
 			if (!repos || repos.length === 0) {

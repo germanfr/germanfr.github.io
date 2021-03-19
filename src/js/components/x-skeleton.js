@@ -1,6 +1,24 @@
 export class Skeleton extends HTMLElement {
+	static get observedAttributes() {
+		return [ 'size' ];
+	}
+
 	set variant(val) {
 		this.setAttribute('variant', val);
+	}
+
+	set size(val) {
+		this.setAttribute('size', val);
+	}
+
+	attributeChangedCallback(attrName, oldVal, newVal) {
+		if (oldVal === newVal) {
+			return;
+		}
+
+		let size = isNaN(newVal) ? newVal : (newVal + 'px');
+		this.style.width = size;
+		this.style.height = size;
 	}
 }
 
