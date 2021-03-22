@@ -69,7 +69,7 @@ export class ProjectCard extends HTMLElement {
 			description.title = project.description;
 			body.appendChild(description);
 		} else {
-			let skeleton = createElement('x-skeleton', { variant: 'text', className: 'w-100' });
+			let skeleton = createElement('x-skeleton', { variant: 'text', color: 'secondary', className: 'w-100' });
 			body.appendChild(skeleton);
 		}
 
@@ -97,10 +97,10 @@ export class ProjectCard extends HTMLElement {
 			}
 
 		} else {
-			metadataEl.appendChild(createElement('x-skeleton', { variant: 'circle', size: '2ex' }));
-			metadataEl.appendChild(createElement('x-skeleton', { variant: 'text', className: 'w-25' }));
-			metadataEl.appendChild(createElement('x-skeleton', { variant: 'circle', size: '2ex' }));
-			metadataEl.appendChild(createElement('x-skeleton', { variant: 'text', className: 'w-25' }));
+			metadataEl.appendChild(createElement('x-skeleton', { variant: 'circle', size: '2ex', color: 'secondary' }));
+			metadataEl.appendChild(createElement('x-skeleton', { variant: 'text', color:'secondary', className: 'w-25' }));
+			metadataEl.appendChild(createElement('x-skeleton', { variant: 'circle', size: '2ex', color: 'secondary' }));
+			metadataEl.appendChild(createElement('x-skeleton', { variant: 'text', color:'secondary', className: 'w-25' }));
 		}
 
 		body.appendChild(metadataEl);

@@ -17,6 +17,10 @@ x-skeleton, .skeleton {
 	}
 }
 
+x-skeleton[color=secondary], .skeleton.bg-secondary {
+	background: rgba($gray-600, .25);
+}
+
 x-skeleton[variant=circle], .skeleton-circle {
 	border-radius: 50%;
 }

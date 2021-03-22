@@ -11,14 +11,21 @@ export class Skeleton extends HTMLElement {
 		this.setAttribute('size', val);
 	}
 
+	set color(val) {
+		if (['','secondary'].includes(val))
+			this.setAttribute('color', val);
+	}
+
 	attributeChangedCallback(attrName, oldVal, newVal) {
 		if (oldVal === newVal) {
 			return;
 		}
 
-		let size = isNaN(newVal) ? newVal : (newVal + 'px');
-		this.style.width = size;
-		this.style.height = size;
+		if (this.getAttribute('variant') === 'circle') {
+			let size = isNaN(newVal) ? newVal : (newVal + 'px');
+			this.style.width = size;
+			this.style.height = size;
+		}
 	}
 }
 
