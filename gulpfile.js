@@ -3,7 +3,7 @@ const rename = require('gulp-rename');
 const gulpif = require('gulp-if');
 const sourcemaps = require('gulp-sourcemaps');
 
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const babelify = require('babelify');
 const minify = require('gulp-babel-minify');
 // const uglify = require('gulp-uglify');
