@@ -34,7 +34,7 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-named": "^1.1.0",
     "vinyl-source-stream": "^2.0.0",
-    "webpack-stream": "^5.2.1"
+    "webpack-stream": "^7.0.0"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.13.0",
