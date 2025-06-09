@@ -8,8 +8,6 @@
 _site/** binary
 docs/assets/dist/** binary
 
-package-lock.json binary
-
 # Ignore generated files from languages used statistic
 dist/** linguist-vendored
 src/css/* linguist-vendored

@@ -26,7 +26,7 @@ function css(dev = false) {
 		return src('*.scss', { cwd: SASS_SRC })
 			.pipe(sourcemaps.init())
 			.pipe(sass({
-					outputStyle: dev ? 'nested' : 'compressed',
+					outputStyle: dev ? 'expanded' : 'compressed',
 					sourceMap: CSS_DEST,
 					includePaths: 'node_modules/',
 				}).on('error', sass.logError))
@@ -74,6 +74,8 @@ function jekyll(serve) {
 			stdio: 'inherit',
 			env: {
 				'JEKYLL_ENV': serve ? 'development' : 'production',
+				PATH: process.env.PATH,
+				GEM_HOME: process.env.GEM_HOME,
 			},
 		});
 
@@ -105,6 +107,7 @@ const defaultTask = series(parallel(css(), js()), jekyll());
 
 module.exports = {
 	default: defaultTask,
+	build: defaultTask,
 	watch: watchTask,
 	js: js(),
 	css: css(),
