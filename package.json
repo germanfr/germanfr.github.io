@@ -24,7 +24,7 @@
     "babelify": "^10.0.0",
     "bootstrap": "^4.5.3",
     "browserify": "^16.5.1",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.1",
     "gulp-babel": "^8.0.0",
     "gulp-if": "^3.0.0",
     "gulp-rename": "^2.0.0",
@@ -35,7 +35,7 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-named": "^1.1.0",
     "vinyl-source-stream": "^2.0.0",
-    "webpack-stream": "^5.2.1"
+    "webpack-stream": "^7.0.0"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.13.0",
