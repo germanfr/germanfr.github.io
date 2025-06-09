@@ -1,17 +1,17 @@
 <div class="social-buttons-container">
 	{%- for sn in site.data.author.social %}
-		<a class="social-button {{ sn[0] }} light"
-		   rel="external noopener"
-		   target="_blank"
-		   href="{{ sn[1].url }}"
-		   title="{{ sn[1].title }}">{{ sn[1].name }}</a>
+	<a
+		class="social-button {{ sn[0] }} light"
+		rel="{%- if sn[1].rel != null %}{{ sn[1].rel }}{%- endif %} external nofollow noreferrer noopener"
+		target="_blank"
+		href="{{ sn[1].url }}"
+		title="{{ sn[1].title }}"
+	>
+		{{ sn[1].name }}
+	</a>
 	{%- endfor %}
-	<a class="social-button liam light"
-	   href="{{ site.data.author.email }}"
-	   title="Send me an email"></a>
+	<a class="social-button liam light" href="{{ site.data.author.email }}" title="Send me an email"></a>
 	{%- if site.feed.path != null %}
-		<a class="social-button feed light"
-		   href="{{ site.baseurl }}{{ site.feed.path }}"
-		   title="Subscribe to my Feed"></a>
+	<a class="social-button feed light" href="{{ site.baseurl }}{{ site.feed.path }}" title="Subscribe to my Feed"></a>
 	{%- endif %}
 </div>

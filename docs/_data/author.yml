@@ -12,11 +12,12 @@ social:
         title: Follow me on GitHub
         user: germanfr
         url: https://github.com/germanfr
-    twitter:
-        name: Twitter
-        title: Follow me on Twitter
-        user: "@_germanfr"
-        url: https://twitter.com/_germanfr
+    mastodon:
+        name: Mastodon
+        title: Follow me on Mastodon
+        user: "@germanfr"
+        url: https://social.linux.pizza/@germanfr
+        rel: me
     linkedin:
         name: LinkedIn
         title: Follow me on LinkedIn
@@ -25,3 +26,7 @@ social:
         name: Dribbble
         title: Follow me on Dribbble
         url: https://dribbble.com/germanfr
+    codeberg:
+        name: Codeberg
+        title: Find me on Codeberg
+        url: https://codeberg.org/germanfr
